@@ -1,0 +1,2045 @@
+{
+  "description": "Expected status of POST /api/v1/users per caller, target role and account relation, derived from the creation rules. Precedence: permission, validation, management rule.",
+  "rows": [
+    {
+      "caller": "a-system-admin",
+      "callerRole": "system-admin",
+      "founder": false,
+      "targetRole": "system-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-system-admin",
+      "callerRole": "system-admin",
+      "founder": false,
+      "targetRole": "finance-officer",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-system-admin",
+      "callerRole": "system-admin",
+      "founder": false,
+      "targetRole": "internal-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-system-admin",
+      "callerRole": "system-admin",
+      "founder": false,
+      "targetRole": "internal-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-system-admin",
+      "callerRole": "system-admin",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 400
+    },
+    {
+      "caller": "a-system-admin",
+      "callerRole": "system-admin",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "own",
+      "agencyId": null,
+      "corporateId": "corp-a1",
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-system-admin",
+      "callerRole": "system-admin",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "other",
+      "agencyId": null,
+      "corporateId": "corp-a2",
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-system-admin",
+      "callerRole": "system-admin",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 400
+    },
+    {
+      "caller": "a-system-admin",
+      "callerRole": "system-admin",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "own",
+      "agencyId": null,
+      "corporateId": "corp-a1",
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-system-admin",
+      "callerRole": "system-admin",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "other",
+      "agencyId": null,
+      "corporateId": "corp-a2",
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-system-admin",
+      "callerRole": "system-admin",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 400
+    },
+    {
+      "caller": "a-system-admin",
+      "callerRole": "system-admin",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "own",
+      "agencyId": "agency-a1",
+      "corporateId": null,
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-system-admin",
+      "callerRole": "system-admin",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "other",
+      "agencyId": "agency-a2",
+      "corporateId": null,
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-system-admin",
+      "callerRole": "system-admin",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 400
+    },
+    {
+      "caller": "a-system-admin",
+      "callerRole": "system-admin",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "own",
+      "agencyId": "agency-a1",
+      "corporateId": null,
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-system-admin",
+      "callerRole": "system-admin",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "other",
+      "agencyId": "agency-a2",
+      "corporateId": null,
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-system-admin",
+      "callerRole": "system-admin",
+      "founder": false,
+      "targetRole": "report-viewer",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-internal-admin",
+      "callerRole": "internal-admin",
+      "founder": false,
+      "targetRole": "system-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-internal-admin",
+      "callerRole": "internal-admin",
+      "founder": false,
+      "targetRole": "finance-officer",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-internal-admin",
+      "callerRole": "internal-admin",
+      "founder": false,
+      "targetRole": "internal-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-internal-admin",
+      "callerRole": "internal-admin",
+      "founder": false,
+      "targetRole": "internal-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-internal-admin",
+      "callerRole": "internal-admin",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 400
+    },
+    {
+      "caller": "a-internal-admin",
+      "callerRole": "internal-admin",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "own",
+      "agencyId": null,
+      "corporateId": "corp-a1",
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-internal-admin",
+      "callerRole": "internal-admin",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "other",
+      "agencyId": null,
+      "corporateId": "corp-a2",
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-internal-admin",
+      "callerRole": "internal-admin",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 400
+    },
+    {
+      "caller": "a-internal-admin",
+      "callerRole": "internal-admin",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "own",
+      "agencyId": null,
+      "corporateId": "corp-a1",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-internal-admin",
+      "callerRole": "internal-admin",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "other",
+      "agencyId": null,
+      "corporateId": "corp-a2",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-internal-admin",
+      "callerRole": "internal-admin",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 400
+    },
+    {
+      "caller": "a-internal-admin",
+      "callerRole": "internal-admin",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "own",
+      "agencyId": "agency-a1",
+      "corporateId": null,
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-internal-admin",
+      "callerRole": "internal-admin",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "other",
+      "agencyId": "agency-a2",
+      "corporateId": null,
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-internal-admin",
+      "callerRole": "internal-admin",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 400
+    },
+    {
+      "caller": "a-internal-admin",
+      "callerRole": "internal-admin",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "own",
+      "agencyId": "agency-a1",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-internal-admin",
+      "callerRole": "internal-admin",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "other",
+      "agencyId": "agency-a2",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-internal-admin",
+      "callerRole": "internal-admin",
+      "founder": false,
+      "targetRole": "report-viewer",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-internal-staff",
+      "callerRole": "internal-staff",
+      "founder": false,
+      "targetRole": "system-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-internal-staff",
+      "callerRole": "internal-staff",
+      "founder": false,
+      "targetRole": "finance-officer",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-internal-staff",
+      "callerRole": "internal-staff",
+      "founder": false,
+      "targetRole": "internal-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-internal-staff",
+      "callerRole": "internal-staff",
+      "founder": false,
+      "targetRole": "internal-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-internal-staff",
+      "callerRole": "internal-staff",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-internal-staff",
+      "callerRole": "internal-staff",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "own",
+      "agencyId": null,
+      "corporateId": "corp-a1",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-internal-staff",
+      "callerRole": "internal-staff",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "other",
+      "agencyId": null,
+      "corporateId": "corp-a2",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-internal-staff",
+      "callerRole": "internal-staff",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-internal-staff",
+      "callerRole": "internal-staff",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "own",
+      "agencyId": null,
+      "corporateId": "corp-a1",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-internal-staff",
+      "callerRole": "internal-staff",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "other",
+      "agencyId": null,
+      "corporateId": "corp-a2",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-internal-staff",
+      "callerRole": "internal-staff",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-internal-staff",
+      "callerRole": "internal-staff",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "own",
+      "agencyId": "agency-a1",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-internal-staff",
+      "callerRole": "internal-staff",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "other",
+      "agencyId": "agency-a2",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-internal-staff",
+      "callerRole": "internal-staff",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-internal-staff",
+      "callerRole": "internal-staff",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "own",
+      "agencyId": "agency-a1",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-internal-staff",
+      "callerRole": "internal-staff",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "other",
+      "agencyId": "agency-a2",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-internal-staff",
+      "callerRole": "internal-staff",
+      "founder": false,
+      "targetRole": "report-viewer",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-finance-officer",
+      "callerRole": "finance-officer",
+      "founder": false,
+      "targetRole": "system-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-finance-officer",
+      "callerRole": "finance-officer",
+      "founder": false,
+      "targetRole": "finance-officer",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-finance-officer",
+      "callerRole": "finance-officer",
+      "founder": false,
+      "targetRole": "internal-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-finance-officer",
+      "callerRole": "finance-officer",
+      "founder": false,
+      "targetRole": "internal-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-finance-officer",
+      "callerRole": "finance-officer",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-finance-officer",
+      "callerRole": "finance-officer",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "own",
+      "agencyId": null,
+      "corporateId": "corp-a1",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-finance-officer",
+      "callerRole": "finance-officer",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "other",
+      "agencyId": null,
+      "corporateId": "corp-a2",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-finance-officer",
+      "callerRole": "finance-officer",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-finance-officer",
+      "callerRole": "finance-officer",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "own",
+      "agencyId": null,
+      "corporateId": "corp-a1",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-finance-officer",
+      "callerRole": "finance-officer",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "other",
+      "agencyId": null,
+      "corporateId": "corp-a2",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-finance-officer",
+      "callerRole": "finance-officer",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-finance-officer",
+      "callerRole": "finance-officer",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "own",
+      "agencyId": "agency-a1",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-finance-officer",
+      "callerRole": "finance-officer",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "other",
+      "agencyId": "agency-a2",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-finance-officer",
+      "callerRole": "finance-officer",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-finance-officer",
+      "callerRole": "finance-officer",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "own",
+      "agencyId": "agency-a1",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-finance-officer",
+      "callerRole": "finance-officer",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "other",
+      "agencyId": "agency-a2",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-finance-officer",
+      "callerRole": "finance-officer",
+      "founder": false,
+      "targetRole": "report-viewer",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-admin",
+      "callerRole": "corporate-admin",
+      "founder": true,
+      "targetRole": "system-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-admin",
+      "callerRole": "corporate-admin",
+      "founder": true,
+      "targetRole": "finance-officer",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-admin",
+      "callerRole": "corporate-admin",
+      "founder": true,
+      "targetRole": "internal-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-admin",
+      "callerRole": "corporate-admin",
+      "founder": true,
+      "targetRole": "internal-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-admin",
+      "callerRole": "corporate-admin",
+      "founder": true,
+      "targetRole": "corporate-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-corporate-admin",
+      "callerRole": "corporate-admin",
+      "founder": true,
+      "targetRole": "corporate-admin",
+      "account": "own",
+      "agencyId": null,
+      "corporateId": "corp-a1",
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-corporate-admin",
+      "callerRole": "corporate-admin",
+      "founder": true,
+      "targetRole": "corporate-admin",
+      "account": "other",
+      "agencyId": null,
+      "corporateId": "corp-a2",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-admin",
+      "callerRole": "corporate-admin",
+      "founder": true,
+      "targetRole": "corporate-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-corporate-admin",
+      "callerRole": "corporate-admin",
+      "founder": true,
+      "targetRole": "corporate-staff",
+      "account": "own",
+      "agencyId": null,
+      "corporateId": "corp-a1",
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-corporate-admin",
+      "callerRole": "corporate-admin",
+      "founder": true,
+      "targetRole": "corporate-staff",
+      "account": "other",
+      "agencyId": null,
+      "corporateId": "corp-a2",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-admin",
+      "callerRole": "corporate-admin",
+      "founder": true,
+      "targetRole": "agency-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 400
+    },
+    {
+      "caller": "a-corporate-admin",
+      "callerRole": "corporate-admin",
+      "founder": true,
+      "targetRole": "agency-admin",
+      "account": "own",
+      "agencyId": "agency-a1",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-admin",
+      "callerRole": "corporate-admin",
+      "founder": true,
+      "targetRole": "agency-admin",
+      "account": "other",
+      "agencyId": "agency-a2",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-admin",
+      "callerRole": "corporate-admin",
+      "founder": true,
+      "targetRole": "agency-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 400
+    },
+    {
+      "caller": "a-corporate-admin",
+      "callerRole": "corporate-admin",
+      "founder": true,
+      "targetRole": "agency-staff",
+      "account": "own",
+      "agencyId": "agency-a1",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-admin",
+      "callerRole": "corporate-admin",
+      "founder": true,
+      "targetRole": "agency-staff",
+      "account": "other",
+      "agencyId": "agency-a2",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-admin",
+      "callerRole": "corporate-admin",
+      "founder": true,
+      "targetRole": "report-viewer",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-admin-2",
+      "callerRole": "corporate-admin",
+      "founder": false,
+      "targetRole": "system-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-admin-2",
+      "callerRole": "corporate-admin",
+      "founder": false,
+      "targetRole": "finance-officer",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-admin-2",
+      "callerRole": "corporate-admin",
+      "founder": false,
+      "targetRole": "internal-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-admin-2",
+      "callerRole": "corporate-admin",
+      "founder": false,
+      "targetRole": "internal-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-admin-2",
+      "callerRole": "corporate-admin",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-admin-2",
+      "callerRole": "corporate-admin",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "own",
+      "agencyId": null,
+      "corporateId": "corp-a1",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-admin-2",
+      "callerRole": "corporate-admin",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "other",
+      "agencyId": null,
+      "corporateId": "corp-a2",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-admin-2",
+      "callerRole": "corporate-admin",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-corporate-admin-2",
+      "callerRole": "corporate-admin",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "own",
+      "agencyId": null,
+      "corporateId": "corp-a1",
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-corporate-admin-2",
+      "callerRole": "corporate-admin",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "other",
+      "agencyId": null,
+      "corporateId": "corp-a2",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-admin-2",
+      "callerRole": "corporate-admin",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 400
+    },
+    {
+      "caller": "a-corporate-admin-2",
+      "callerRole": "corporate-admin",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "own",
+      "agencyId": "agency-a1",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-admin-2",
+      "callerRole": "corporate-admin",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "other",
+      "agencyId": "agency-a2",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-admin-2",
+      "callerRole": "corporate-admin",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 400
+    },
+    {
+      "caller": "a-corporate-admin-2",
+      "callerRole": "corporate-admin",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "own",
+      "agencyId": "agency-a1",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-admin-2",
+      "callerRole": "corporate-admin",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "other",
+      "agencyId": "agency-a2",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-admin-2",
+      "callerRole": "corporate-admin",
+      "founder": false,
+      "targetRole": "report-viewer",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-staff",
+      "callerRole": "corporate-staff",
+      "founder": false,
+      "targetRole": "system-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-staff",
+      "callerRole": "corporate-staff",
+      "founder": false,
+      "targetRole": "finance-officer",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-staff",
+      "callerRole": "corporate-staff",
+      "founder": false,
+      "targetRole": "internal-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-staff",
+      "callerRole": "corporate-staff",
+      "founder": false,
+      "targetRole": "internal-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-staff",
+      "callerRole": "corporate-staff",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-staff",
+      "callerRole": "corporate-staff",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "own",
+      "agencyId": null,
+      "corporateId": "corp-a1",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-staff",
+      "callerRole": "corporate-staff",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "other",
+      "agencyId": null,
+      "corporateId": "corp-a2",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-staff",
+      "callerRole": "corporate-staff",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-staff",
+      "callerRole": "corporate-staff",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "own",
+      "agencyId": null,
+      "corporateId": "corp-a1",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-staff",
+      "callerRole": "corporate-staff",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "other",
+      "agencyId": null,
+      "corporateId": "corp-a2",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-staff",
+      "callerRole": "corporate-staff",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-staff",
+      "callerRole": "corporate-staff",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "own",
+      "agencyId": "agency-a1",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-staff",
+      "callerRole": "corporate-staff",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "other",
+      "agencyId": "agency-a2",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-staff",
+      "callerRole": "corporate-staff",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-staff",
+      "callerRole": "corporate-staff",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "own",
+      "agencyId": "agency-a1",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-staff",
+      "callerRole": "corporate-staff",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "other",
+      "agencyId": "agency-a2",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-corporate-staff",
+      "callerRole": "corporate-staff",
+      "founder": false,
+      "targetRole": "report-viewer",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-admin",
+      "callerRole": "agency-admin",
+      "founder": true,
+      "targetRole": "system-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-admin",
+      "callerRole": "agency-admin",
+      "founder": true,
+      "targetRole": "finance-officer",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-admin",
+      "callerRole": "agency-admin",
+      "founder": true,
+      "targetRole": "internal-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-admin",
+      "callerRole": "agency-admin",
+      "founder": true,
+      "targetRole": "internal-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-admin",
+      "callerRole": "agency-admin",
+      "founder": true,
+      "targetRole": "corporate-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 400
+    },
+    {
+      "caller": "a-agency-admin",
+      "callerRole": "agency-admin",
+      "founder": true,
+      "targetRole": "corporate-admin",
+      "account": "own",
+      "agencyId": null,
+      "corporateId": "corp-a1",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-admin",
+      "callerRole": "agency-admin",
+      "founder": true,
+      "targetRole": "corporate-admin",
+      "account": "other",
+      "agencyId": null,
+      "corporateId": "corp-a2",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-admin",
+      "callerRole": "agency-admin",
+      "founder": true,
+      "targetRole": "corporate-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 400
+    },
+    {
+      "caller": "a-agency-admin",
+      "callerRole": "agency-admin",
+      "founder": true,
+      "targetRole": "corporate-staff",
+      "account": "own",
+      "agencyId": null,
+      "corporateId": "corp-a1",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-admin",
+      "callerRole": "agency-admin",
+      "founder": true,
+      "targetRole": "corporate-staff",
+      "account": "other",
+      "agencyId": null,
+      "corporateId": "corp-a2",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-admin",
+      "callerRole": "agency-admin",
+      "founder": true,
+      "targetRole": "agency-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-agency-admin",
+      "callerRole": "agency-admin",
+      "founder": true,
+      "targetRole": "agency-admin",
+      "account": "own",
+      "agencyId": "agency-a1",
+      "corporateId": null,
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-agency-admin",
+      "callerRole": "agency-admin",
+      "founder": true,
+      "targetRole": "agency-admin",
+      "account": "other",
+      "agencyId": "agency-a2",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-admin",
+      "callerRole": "agency-admin",
+      "founder": true,
+      "targetRole": "agency-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-agency-admin",
+      "callerRole": "agency-admin",
+      "founder": true,
+      "targetRole": "agency-staff",
+      "account": "own",
+      "agencyId": "agency-a1",
+      "corporateId": null,
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-agency-admin",
+      "callerRole": "agency-admin",
+      "founder": true,
+      "targetRole": "agency-staff",
+      "account": "other",
+      "agencyId": "agency-a2",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-admin",
+      "callerRole": "agency-admin",
+      "founder": true,
+      "targetRole": "report-viewer",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-admin-2",
+      "callerRole": "agency-admin",
+      "founder": false,
+      "targetRole": "system-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-admin-2",
+      "callerRole": "agency-admin",
+      "founder": false,
+      "targetRole": "finance-officer",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-admin-2",
+      "callerRole": "agency-admin",
+      "founder": false,
+      "targetRole": "internal-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-admin-2",
+      "callerRole": "agency-admin",
+      "founder": false,
+      "targetRole": "internal-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-admin-2",
+      "callerRole": "agency-admin",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 400
+    },
+    {
+      "caller": "a-agency-admin-2",
+      "callerRole": "agency-admin",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "own",
+      "agencyId": null,
+      "corporateId": "corp-a1",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-admin-2",
+      "callerRole": "agency-admin",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "other",
+      "agencyId": null,
+      "corporateId": "corp-a2",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-admin-2",
+      "callerRole": "agency-admin",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 400
+    },
+    {
+      "caller": "a-agency-admin-2",
+      "callerRole": "agency-admin",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "own",
+      "agencyId": null,
+      "corporateId": "corp-a1",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-admin-2",
+      "callerRole": "agency-admin",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "other",
+      "agencyId": null,
+      "corporateId": "corp-a2",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-admin-2",
+      "callerRole": "agency-admin",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-admin-2",
+      "callerRole": "agency-admin",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "own",
+      "agencyId": "agency-a1",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-admin-2",
+      "callerRole": "agency-admin",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "other",
+      "agencyId": "agency-a2",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-admin-2",
+      "callerRole": "agency-admin",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-agency-admin-2",
+      "callerRole": "agency-admin",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "own",
+      "agencyId": "agency-a1",
+      "corporateId": null,
+      "expectedStatus": 201
+    },
+    {
+      "caller": "a-agency-admin-2",
+      "callerRole": "agency-admin",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "other",
+      "agencyId": "agency-a2",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-admin-2",
+      "callerRole": "agency-admin",
+      "founder": false,
+      "targetRole": "report-viewer",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-staff",
+      "callerRole": "agency-staff",
+      "founder": false,
+      "targetRole": "system-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-staff",
+      "callerRole": "agency-staff",
+      "founder": false,
+      "targetRole": "finance-officer",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-staff",
+      "callerRole": "agency-staff",
+      "founder": false,
+      "targetRole": "internal-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-staff",
+      "callerRole": "agency-staff",
+      "founder": false,
+      "targetRole": "internal-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-staff",
+      "callerRole": "agency-staff",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-staff",
+      "callerRole": "agency-staff",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "own",
+      "agencyId": null,
+      "corporateId": "corp-a1",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-staff",
+      "callerRole": "agency-staff",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "other",
+      "agencyId": null,
+      "corporateId": "corp-a2",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-staff",
+      "callerRole": "agency-staff",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-staff",
+      "callerRole": "agency-staff",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "own",
+      "agencyId": null,
+      "corporateId": "corp-a1",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-staff",
+      "callerRole": "agency-staff",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "other",
+      "agencyId": null,
+      "corporateId": "corp-a2",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-staff",
+      "callerRole": "agency-staff",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-staff",
+      "callerRole": "agency-staff",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "own",
+      "agencyId": "agency-a1",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-staff",
+      "callerRole": "agency-staff",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "other",
+      "agencyId": "agency-a2",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-staff",
+      "callerRole": "agency-staff",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-staff",
+      "callerRole": "agency-staff",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "own",
+      "agencyId": "agency-a1",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-staff",
+      "callerRole": "agency-staff",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "other",
+      "agencyId": "agency-a2",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-agency-staff",
+      "callerRole": "agency-staff",
+      "founder": false,
+      "targetRole": "report-viewer",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-report-viewer",
+      "callerRole": "report-viewer",
+      "founder": false,
+      "targetRole": "system-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-report-viewer",
+      "callerRole": "report-viewer",
+      "founder": false,
+      "targetRole": "finance-officer",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-report-viewer",
+      "callerRole": "report-viewer",
+      "founder": false,
+      "targetRole": "internal-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-report-viewer",
+      "callerRole": "report-viewer",
+      "founder": false,
+      "targetRole": "internal-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-report-viewer",
+      "callerRole": "report-viewer",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-report-viewer",
+      "callerRole": "report-viewer",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "own",
+      "agencyId": null,
+      "corporateId": "corp-a1",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-report-viewer",
+      "callerRole": "report-viewer",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "other",
+      "agencyId": null,
+      "corporateId": "corp-a2",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-report-viewer",
+      "callerRole": "report-viewer",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-report-viewer",
+      "callerRole": "report-viewer",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "own",
+      "agencyId": null,
+      "corporateId": "corp-a1",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-report-viewer",
+      "callerRole": "report-viewer",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "other",
+      "agencyId": null,
+      "corporateId": "corp-a2",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-report-viewer",
+      "callerRole": "report-viewer",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-report-viewer",
+      "callerRole": "report-viewer",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "own",
+      "agencyId": "agency-a1",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-report-viewer",
+      "callerRole": "report-viewer",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "other",
+      "agencyId": "agency-a2",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-report-viewer",
+      "callerRole": "report-viewer",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-report-viewer",
+      "callerRole": "report-viewer",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "own",
+      "agencyId": "agency-a1",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-report-viewer",
+      "callerRole": "report-viewer",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "other",
+      "agencyId": "agency-a2",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-report-viewer",
+      "callerRole": "report-viewer",
+      "founder": false,
+      "targetRole": "report-viewer",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-customer",
+      "callerRole": "customer",
+      "founder": false,
+      "targetRole": "system-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-customer",
+      "callerRole": "customer",
+      "founder": false,
+      "targetRole": "finance-officer",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-customer",
+      "callerRole": "customer",
+      "founder": false,
+      "targetRole": "internal-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-customer",
+      "callerRole": "customer",
+      "founder": false,
+      "targetRole": "internal-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-customer",
+      "callerRole": "customer",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-customer",
+      "callerRole": "customer",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "own",
+      "agencyId": null,
+      "corporateId": "corp-a1",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-customer",
+      "callerRole": "customer",
+      "founder": false,
+      "targetRole": "corporate-admin",
+      "account": "other",
+      "agencyId": null,
+      "corporateId": "corp-a2",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-customer",
+      "callerRole": "customer",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-customer",
+      "callerRole": "customer",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "own",
+      "agencyId": null,
+      "corporateId": "corp-a1",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-customer",
+      "callerRole": "customer",
+      "founder": false,
+      "targetRole": "corporate-staff",
+      "account": "other",
+      "agencyId": null,
+      "corporateId": "corp-a2",
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-customer",
+      "callerRole": "customer",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-customer",
+      "callerRole": "customer",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "own",
+      "agencyId": "agency-a1",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-customer",
+      "callerRole": "customer",
+      "founder": false,
+      "targetRole": "agency-admin",
+      "account": "other",
+      "agencyId": "agency-a2",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-customer",
+      "callerRole": "customer",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-customer",
+      "callerRole": "customer",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "own",
+      "agencyId": "agency-a1",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-customer",
+      "callerRole": "customer",
+      "founder": false,
+      "targetRole": "agency-staff",
+      "account": "other",
+      "agencyId": "agency-a2",
+      "corporateId": null,
+      "expectedStatus": 403
+    },
+    {
+      "caller": "a-customer",
+      "callerRole": "customer",
+      "founder": false,
+      "targetRole": "report-viewer",
+      "account": "omitted",
+      "agencyId": null,
+      "corporateId": null,
+      "expectedStatus": 403
+    }
+  ]
+}

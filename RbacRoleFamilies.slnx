@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Rbac.Abstractions/Rbac.Abstractions.csproj" />
+    <Project Path="src/Rbac.Core/Rbac.Core.csproj" />
+    <Project Path="src/Rbac.AspNetCore/Rbac.AspNetCore.csproj" />
+    <Project Path="src/Rbac.Persistence/Rbac.Persistence.csproj" />
+    <Project Path="src/Rbac.Demo/Rbac.Demo.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Rbac.Tests/Rbac.Tests.csproj" />
+    <Project Path="tests/Rbac.IntegrationTests/Rbac.IntegrationTests.csproj" />
+  </Folder>
+</Solution>

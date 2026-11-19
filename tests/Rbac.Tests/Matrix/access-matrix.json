@@ -1,0 +1,5678 @@
+{
+  "description": "Expected API behaviour per seeded user, derived from the seed dataset and the access rules (not from the strategy code). list rows give the exact booking ids GET /api/v1/bookings must return; action rows give the status of a single call.",
+  "list": [
+    {
+      "user": "a-system-admin",
+      "role": "system-admin",
+      "scenario": "all visible bookings",
+      "query": "",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-001",
+        "bk-a-002",
+        "bk-a-003",
+        "bk-a-004",
+        "bk-a-005",
+        "bk-a-006",
+        "bk-a-007",
+        "bk-a-008",
+        "bk-a-009",
+        "bk-a-010",
+        "bk-a-011",
+        "bk-a-012",
+        "bk-a-013",
+        "bk-a-014",
+        "bk-a-015",
+        "bk-a-016",
+        "bk-a-017",
+        "bk-a-018",
+        "bk-a-019",
+        "bk-a-020",
+        "bk-a-021",
+        "bk-a-022",
+        "bk-a-023",
+        "bk-a-024",
+        "bk-a-025",
+        "bk-a-026",
+        "bk-a-027",
+        "bk-a-028",
+        "bk-a-029",
+        "bk-a-030",
+        "bk-a-031",
+        "bk-a-032",
+        "bk-a-033",
+        "bk-a-034",
+        "bk-a-035",
+        "bk-a-036",
+        "bk-a-037",
+        "bk-a-038",
+        "bk-a-039",
+        "bk-a-040",
+        "bk-a-041",
+        "bk-a-042",
+        "bk-a-043",
+        "bk-a-044",
+        "bk-a-045",
+        "bk-a-046",
+        "bk-a-047",
+        "bk-a-048"
+      ]
+    },
+    {
+      "user": "a-system-admin",
+      "role": "system-admin",
+      "scenario": "refunded bookings only",
+      "query": "status=Refunded",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-006",
+        "bk-a-014",
+        "bk-a-022",
+        "bk-a-030",
+        "bk-a-038",
+        "bk-a-046"
+      ]
+    },
+    {
+      "user": "a-system-admin",
+      "role": "system-admin",
+      "scenario": "own bookings only (narrowing)",
+      "query": "mine=true",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-001",
+        "bk-a-002",
+        "bk-a-003"
+      ]
+    },
+    {
+      "user": "a-finance-officer",
+      "role": "finance-officer",
+      "scenario": "all visible bookings",
+      "query": "",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-004",
+        "bk-a-006",
+        "bk-a-012",
+        "bk-a-014",
+        "bk-a-020",
+        "bk-a-022",
+        "bk-a-028",
+        "bk-a-030",
+        "bk-a-036",
+        "bk-a-038",
+        "bk-a-044",
+        "bk-a-046"
+      ]
+    },
+    {
+      "user": "a-finance-officer",
+      "role": "finance-officer",
+      "scenario": "refunded bookings only",
+      "query": "status=Refunded",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-006",
+        "bk-a-014",
+        "bk-a-022",
+        "bk-a-030",
+        "bk-a-038",
+        "bk-a-046"
+      ]
+    },
+    {
+      "user": "a-finance-officer",
+      "role": "finance-officer",
+      "scenario": "own bookings only (narrowing)",
+      "query": "mine=true",
+      "expectedStatus": 200,
+      "bookingIds": []
+    },
+    {
+      "user": "a-finance-reports",
+      "role": "finance-officer",
+      "scenario": "all visible bookings",
+      "query": "",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-001",
+        "bk-a-002",
+        "bk-a-003",
+        "bk-a-004",
+        "bk-a-005",
+        "bk-a-006",
+        "bk-a-007",
+        "bk-a-008",
+        "bk-a-009",
+        "bk-a-010",
+        "bk-a-011",
+        "bk-a-012",
+        "bk-a-013",
+        "bk-a-014",
+        "bk-a-015",
+        "bk-a-016",
+        "bk-a-017",
+        "bk-a-018",
+        "bk-a-019",
+        "bk-a-020",
+        "bk-a-021",
+        "bk-a-022",
+        "bk-a-023",
+        "bk-a-024",
+        "bk-a-025",
+        "bk-a-026",
+        "bk-a-027",
+        "bk-a-028",
+        "bk-a-029",
+        "bk-a-030",
+        "bk-a-031",
+        "bk-a-032",
+        "bk-a-033",
+        "bk-a-034",
+        "bk-a-035",
+        "bk-a-036",
+        "bk-a-037",
+        "bk-a-038",
+        "bk-a-039",
+        "bk-a-040",
+        "bk-a-041",
+        "bk-a-042",
+        "bk-a-043",
+        "bk-a-044",
+        "bk-a-045",
+        "bk-a-046",
+        "bk-a-047",
+        "bk-a-048"
+      ]
+    },
+    {
+      "user": "a-finance-reports",
+      "role": "finance-officer",
+      "scenario": "refunded bookings only",
+      "query": "status=Refunded",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-006",
+        "bk-a-014",
+        "bk-a-022",
+        "bk-a-030",
+        "bk-a-038",
+        "bk-a-046"
+      ]
+    },
+    {
+      "user": "a-finance-reports",
+      "role": "finance-officer",
+      "scenario": "own bookings only (narrowing)",
+      "query": "mine=true",
+      "expectedStatus": 200,
+      "bookingIds": []
+    },
+    {
+      "user": "a-internal-admin",
+      "role": "internal-admin",
+      "scenario": "all visible bookings",
+      "query": "",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-004",
+        "bk-a-005",
+        "bk-a-006",
+        "bk-a-007",
+        "bk-a-008",
+        "bk-a-009",
+        "bk-a-010",
+        "bk-a-011",
+        "bk-a-012",
+        "bk-a-013",
+        "bk-a-014",
+        "bk-a-015",
+        "bk-a-016"
+      ]
+    },
+    {
+      "user": "a-internal-admin",
+      "role": "internal-admin",
+      "scenario": "refunded bookings only",
+      "query": "status=Refunded",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-006",
+        "bk-a-014"
+      ]
+    },
+    {
+      "user": "a-internal-admin",
+      "role": "internal-admin",
+      "scenario": "own bookings only (narrowing)",
+      "query": "mine=true",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-004",
+        "bk-a-005",
+        "bk-a-006",
+        "bk-a-007"
+      ]
+    },
+    {
+      "user": "a-internal-staff",
+      "role": "internal-staff",
+      "scenario": "all visible bookings",
+      "query": "",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-004",
+        "bk-a-005",
+        "bk-a-006",
+        "bk-a-007",
+        "bk-a-008",
+        "bk-a-009",
+        "bk-a-010",
+        "bk-a-011",
+        "bk-a-012",
+        "bk-a-013",
+        "bk-a-014",
+        "bk-a-015",
+        "bk-a-016"
+      ]
+    },
+    {
+      "user": "a-internal-staff",
+      "role": "internal-staff",
+      "scenario": "refunded bookings only",
+      "query": "status=Refunded",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-006",
+        "bk-a-014"
+      ]
+    },
+    {
+      "user": "a-internal-staff",
+      "role": "internal-staff",
+      "scenario": "own bookings only (narrowing)",
+      "query": "mine=true",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-008",
+        "bk-a-009",
+        "bk-a-010",
+        "bk-a-011",
+        "bk-a-012"
+      ]
+    },
+    {
+      "user": "a-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "all visible bookings",
+      "query": "",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-034",
+        "bk-a-035",
+        "bk-a-036",
+        "bk-a-037",
+        "bk-a-038",
+        "bk-a-039",
+        "bk-a-040",
+        "bk-a-041",
+        "bk-a-042"
+      ]
+    },
+    {
+      "user": "a-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "refunded bookings only",
+      "query": "status=Refunded",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-038"
+      ]
+    },
+    {
+      "user": "a-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "own bookings only (narrowing)",
+      "query": "mine=true",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-034",
+        "bk-a-035",
+        "bk-a-036"
+      ]
+    },
+    {
+      "user": "a-corporate-admin-2",
+      "role": "corporate-admin",
+      "scenario": "all visible bookings",
+      "query": "",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-034",
+        "bk-a-035",
+        "bk-a-036",
+        "bk-a-037",
+        "bk-a-038",
+        "bk-a-039",
+        "bk-a-040",
+        "bk-a-041",
+        "bk-a-042"
+      ]
+    },
+    {
+      "user": "a-corporate-admin-2",
+      "role": "corporate-admin",
+      "scenario": "refunded bookings only",
+      "query": "status=Refunded",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-038"
+      ]
+    },
+    {
+      "user": "a-corporate-admin-2",
+      "role": "corporate-admin",
+      "scenario": "own bookings only (narrowing)",
+      "query": "mine=true",
+      "expectedStatus": 200,
+      "bookingIds": []
+    },
+    {
+      "user": "a-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "all visible bookings",
+      "query": "",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-037",
+        "bk-a-038",
+        "bk-a-039"
+      ]
+    },
+    {
+      "user": "a-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "refunded bookings only",
+      "query": "status=Refunded",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-038"
+      ]
+    },
+    {
+      "user": "a-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "own bookings only (narrowing)",
+      "query": "mine=true",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-037",
+        "bk-a-038",
+        "bk-a-039"
+      ]
+    },
+    {
+      "user": "a-corporate-staff-viewall",
+      "role": "corporate-staff",
+      "scenario": "all visible bookings",
+      "query": "",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-034",
+        "bk-a-035",
+        "bk-a-036",
+        "bk-a-037",
+        "bk-a-038",
+        "bk-a-039",
+        "bk-a-040",
+        "bk-a-041",
+        "bk-a-042"
+      ]
+    },
+    {
+      "user": "a-corporate-staff-viewall",
+      "role": "corporate-staff",
+      "scenario": "refunded bookings only",
+      "query": "status=Refunded",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-038"
+      ]
+    },
+    {
+      "user": "a-corporate-staff-viewall",
+      "role": "corporate-staff",
+      "scenario": "own bookings only (narrowing)",
+      "query": "mine=true",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-040",
+        "bk-a-041",
+        "bk-a-042"
+      ]
+    },
+    {
+      "user": "a-corporate2-admin",
+      "role": "corporate-admin",
+      "scenario": "all visible bookings",
+      "query": "",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-043",
+        "bk-a-044"
+      ]
+    },
+    {
+      "user": "a-corporate2-admin",
+      "role": "corporate-admin",
+      "scenario": "refunded bookings only",
+      "query": "status=Refunded",
+      "expectedStatus": 200,
+      "bookingIds": []
+    },
+    {
+      "user": "a-corporate2-admin",
+      "role": "corporate-admin",
+      "scenario": "own bookings only (narrowing)",
+      "query": "mine=true",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-043",
+        "bk-a-044"
+      ]
+    },
+    {
+      "user": "a-agency-admin",
+      "role": "agency-admin",
+      "scenario": "all visible bookings",
+      "query": "",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-017",
+        "bk-a-018",
+        "bk-a-020",
+        "bk-a-021",
+        "bk-a-022",
+        "bk-a-023",
+        "bk-a-024",
+        "bk-a-025",
+        "bk-a-026",
+        "bk-a-027",
+        "bk-a-028",
+        "bk-a-029",
+        "bk-a-030"
+      ]
+    },
+    {
+      "user": "a-agency-admin",
+      "role": "agency-admin",
+      "scenario": "refunded bookings only",
+      "query": "status=Refunded",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-022",
+        "bk-a-030"
+      ]
+    },
+    {
+      "user": "a-agency-admin",
+      "role": "agency-admin",
+      "scenario": "own bookings only (narrowing)",
+      "query": "mine=true",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-020",
+        "bk-a-021",
+        "bk-a-022",
+        "bk-a-023"
+      ]
+    },
+    {
+      "user": "a-agency-admin-2",
+      "role": "agency-admin",
+      "scenario": "all visible bookings",
+      "query": "",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-017",
+        "bk-a-018",
+        "bk-a-020",
+        "bk-a-021",
+        "bk-a-022",
+        "bk-a-023",
+        "bk-a-024",
+        "bk-a-025",
+        "bk-a-026",
+        "bk-a-027",
+        "bk-a-028",
+        "bk-a-029",
+        "bk-a-030"
+      ]
+    },
+    {
+      "user": "a-agency-admin-2",
+      "role": "agency-admin",
+      "scenario": "refunded bookings only",
+      "query": "status=Refunded",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-022",
+        "bk-a-030"
+      ]
+    },
+    {
+      "user": "a-agency-admin-2",
+      "role": "agency-admin",
+      "scenario": "own bookings only (narrowing)",
+      "query": "mine=true",
+      "expectedStatus": 200,
+      "bookingIds": []
+    },
+    {
+      "user": "a-agency-staff",
+      "role": "agency-staff",
+      "scenario": "all visible bookings",
+      "query": "",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-024",
+        "bk-a-025",
+        "bk-a-026",
+        "bk-a-027"
+      ]
+    },
+    {
+      "user": "a-agency-staff",
+      "role": "agency-staff",
+      "scenario": "refunded bookings only",
+      "query": "status=Refunded",
+      "expectedStatus": 200,
+      "bookingIds": []
+    },
+    {
+      "user": "a-agency-staff",
+      "role": "agency-staff",
+      "scenario": "own bookings only (narrowing)",
+      "query": "mine=true",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-024",
+        "bk-a-025",
+        "bk-a-026",
+        "bk-a-027"
+      ]
+    },
+    {
+      "user": "a-agency-staff-viewall",
+      "role": "agency-staff",
+      "scenario": "all visible bookings",
+      "query": "",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-017",
+        "bk-a-018",
+        "bk-a-020",
+        "bk-a-021",
+        "bk-a-022",
+        "bk-a-023",
+        "bk-a-024",
+        "bk-a-025",
+        "bk-a-026",
+        "bk-a-027",
+        "bk-a-028",
+        "bk-a-029",
+        "bk-a-030"
+      ]
+    },
+    {
+      "user": "a-agency-staff-viewall",
+      "role": "agency-staff",
+      "scenario": "refunded bookings only",
+      "query": "status=Refunded",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-022",
+        "bk-a-030"
+      ]
+    },
+    {
+      "user": "a-agency-staff-viewall",
+      "role": "agency-staff",
+      "scenario": "own bookings only (narrowing)",
+      "query": "mine=true",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-028",
+        "bk-a-029",
+        "bk-a-030"
+      ]
+    },
+    {
+      "user": "a-agency2-admin",
+      "role": "agency-admin",
+      "scenario": "all visible bookings",
+      "query": "",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-031",
+        "bk-a-032",
+        "bk-a-033"
+      ]
+    },
+    {
+      "user": "a-agency2-admin",
+      "role": "agency-admin",
+      "scenario": "refunded bookings only",
+      "query": "status=Refunded",
+      "expectedStatus": 200,
+      "bookingIds": []
+    },
+    {
+      "user": "a-agency2-admin",
+      "role": "agency-admin",
+      "scenario": "own bookings only (narrowing)",
+      "query": "mine=true",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-031",
+        "bk-a-032",
+        "bk-a-033"
+      ]
+    },
+    {
+      "user": "a-report-viewer",
+      "role": "report-viewer",
+      "scenario": "all visible bookings",
+      "query": "",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-report-viewer",
+      "role": "report-viewer",
+      "scenario": "refunded bookings only",
+      "query": "status=Refunded",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-report-viewer",
+      "role": "report-viewer",
+      "scenario": "own bookings only (narrowing)",
+      "query": "mine=true",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-customer",
+      "role": "customer",
+      "scenario": "all visible bookings",
+      "query": "",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-045",
+        "bk-a-046",
+        "bk-a-047",
+        "bk-a-048"
+      ]
+    },
+    {
+      "user": "a-customer",
+      "role": "customer",
+      "scenario": "refunded bookings only",
+      "query": "status=Refunded",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-046"
+      ]
+    },
+    {
+      "user": "a-customer",
+      "role": "customer",
+      "scenario": "own bookings only (narrowing)",
+      "query": "mine=true",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-a-045",
+        "bk-a-046",
+        "bk-a-047",
+        "bk-a-048"
+      ]
+    },
+    {
+      "user": "b-system-admin",
+      "role": "system-admin",
+      "scenario": "all visible bookings",
+      "query": "",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-b-001",
+        "bk-b-002",
+        "bk-b-003",
+        "bk-b-004",
+        "bk-b-005",
+        "bk-b-006",
+        "bk-b-007",
+        "bk-b-008",
+        "bk-b-009",
+        "bk-b-010",
+        "bk-b-011",
+        "bk-b-012"
+      ]
+    },
+    {
+      "user": "b-system-admin",
+      "role": "system-admin",
+      "scenario": "refunded bookings only",
+      "query": "status=Refunded",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-b-006"
+      ]
+    },
+    {
+      "user": "b-system-admin",
+      "role": "system-admin",
+      "scenario": "own bookings only (narrowing)",
+      "query": "mine=true",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-b-001",
+        "bk-b-002"
+      ]
+    },
+    {
+      "user": "b-finance-officer",
+      "role": "finance-officer",
+      "scenario": "all visible bookings",
+      "query": "",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-b-004",
+        "bk-b-006",
+        "bk-b-012"
+      ]
+    },
+    {
+      "user": "b-finance-officer",
+      "role": "finance-officer",
+      "scenario": "refunded bookings only",
+      "query": "status=Refunded",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-b-006"
+      ]
+    },
+    {
+      "user": "b-finance-officer",
+      "role": "finance-officer",
+      "scenario": "own bookings only (narrowing)",
+      "query": "mine=true",
+      "expectedStatus": 200,
+      "bookingIds": []
+    },
+    {
+      "user": "b-internal-admin",
+      "role": "internal-admin",
+      "scenario": "all visible bookings",
+      "query": "",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-b-003",
+        "bk-b-004",
+        "bk-b-005"
+      ]
+    },
+    {
+      "user": "b-internal-admin",
+      "role": "internal-admin",
+      "scenario": "refunded bookings only",
+      "query": "status=Refunded",
+      "expectedStatus": 200,
+      "bookingIds": []
+    },
+    {
+      "user": "b-internal-admin",
+      "role": "internal-admin",
+      "scenario": "own bookings only (narrowing)",
+      "query": "mine=true",
+      "expectedStatus": 200,
+      "bookingIds": []
+    },
+    {
+      "user": "b-internal-staff",
+      "role": "internal-staff",
+      "scenario": "all visible bookings",
+      "query": "",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-b-003",
+        "bk-b-004",
+        "bk-b-005"
+      ]
+    },
+    {
+      "user": "b-internal-staff",
+      "role": "internal-staff",
+      "scenario": "refunded bookings only",
+      "query": "status=Refunded",
+      "expectedStatus": 200,
+      "bookingIds": []
+    },
+    {
+      "user": "b-internal-staff",
+      "role": "internal-staff",
+      "scenario": "own bookings only (narrowing)",
+      "query": "mine=true",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-b-003",
+        "bk-b-004"
+      ]
+    },
+    {
+      "user": "b-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "all visible bookings",
+      "query": "",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-b-009",
+        "bk-b-010"
+      ]
+    },
+    {
+      "user": "b-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "refunded bookings only",
+      "query": "status=Refunded",
+      "expectedStatus": 200,
+      "bookingIds": []
+    },
+    {
+      "user": "b-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "own bookings only (narrowing)",
+      "query": "mine=true",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-b-009",
+        "bk-b-010"
+      ]
+    },
+    {
+      "user": "b-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "all visible bookings",
+      "query": "",
+      "expectedStatus": 200,
+      "bookingIds": []
+    },
+    {
+      "user": "b-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "refunded bookings only",
+      "query": "status=Refunded",
+      "expectedStatus": 200,
+      "bookingIds": []
+    },
+    {
+      "user": "b-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "own bookings only (narrowing)",
+      "query": "mine=true",
+      "expectedStatus": 200,
+      "bookingIds": []
+    },
+    {
+      "user": "b-agency-admin",
+      "role": "agency-admin",
+      "scenario": "all visible bookings",
+      "query": "",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-b-006",
+        "bk-b-007",
+        "bk-b-008"
+      ]
+    },
+    {
+      "user": "b-agency-admin",
+      "role": "agency-admin",
+      "scenario": "refunded bookings only",
+      "query": "status=Refunded",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-b-006"
+      ]
+    },
+    {
+      "user": "b-agency-admin",
+      "role": "agency-admin",
+      "scenario": "own bookings only (narrowing)",
+      "query": "mine=true",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-b-006",
+        "bk-b-007"
+      ]
+    },
+    {
+      "user": "b-agency-staff",
+      "role": "agency-staff",
+      "scenario": "all visible bookings",
+      "query": "",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-b-008"
+      ]
+    },
+    {
+      "user": "b-agency-staff",
+      "role": "agency-staff",
+      "scenario": "refunded bookings only",
+      "query": "status=Refunded",
+      "expectedStatus": 200,
+      "bookingIds": []
+    },
+    {
+      "user": "b-agency-staff",
+      "role": "agency-staff",
+      "scenario": "own bookings only (narrowing)",
+      "query": "mine=true",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-b-008"
+      ]
+    },
+    {
+      "user": "b-report-viewer",
+      "role": "report-viewer",
+      "scenario": "all visible bookings",
+      "query": "",
+      "expectedStatus": 403
+    },
+    {
+      "user": "b-report-viewer",
+      "role": "report-viewer",
+      "scenario": "refunded bookings only",
+      "query": "status=Refunded",
+      "expectedStatus": 403
+    },
+    {
+      "user": "b-report-viewer",
+      "role": "report-viewer",
+      "scenario": "own bookings only (narrowing)",
+      "query": "mine=true",
+      "expectedStatus": 403
+    },
+    {
+      "user": "b-customer",
+      "role": "customer",
+      "scenario": "all visible bookings",
+      "query": "",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-b-011",
+        "bk-b-012"
+      ]
+    },
+    {
+      "user": "b-customer",
+      "role": "customer",
+      "scenario": "refunded bookings only",
+      "query": "status=Refunded",
+      "expectedStatus": 200,
+      "bookingIds": []
+    },
+    {
+      "user": "b-customer",
+      "role": "customer",
+      "scenario": "own bookings only (narrowing)",
+      "query": "mine=true",
+      "expectedStatus": 200,
+      "bookingIds": [
+        "bk-b-011",
+        "bk-b-012"
+      ]
+    }
+  ],
+  "users": [
+    {
+      "user": "a-system-admin",
+      "role": "system-admin",
+      "scenario": "list users",
+      "expectedStatus": 200,
+      "userIds": [
+        "a-agency-admin",
+        "a-agency-admin-2",
+        "a-agency-staff",
+        "a-agency-staff-viewall",
+        "a-agency2-admin",
+        "a-corporate-admin",
+        "a-corporate-admin-2",
+        "a-corporate-staff",
+        "a-corporate-staff-viewall",
+        "a-corporate2-admin",
+        "a-customer",
+        "a-finance-officer",
+        "a-finance-reports",
+        "a-internal-admin",
+        "a-internal-staff",
+        "a-report-viewer",
+        "a-system-admin"
+      ]
+    },
+    {
+      "user": "a-finance-officer",
+      "role": "finance-officer",
+      "scenario": "list users",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-finance-reports",
+      "role": "finance-officer",
+      "scenario": "list users",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-internal-admin",
+      "role": "internal-admin",
+      "scenario": "list users",
+      "expectedStatus": 200,
+      "userIds": [
+        "a-agency-admin",
+        "a-agency-admin-2",
+        "a-agency-staff",
+        "a-agency-staff-viewall",
+        "a-agency2-admin",
+        "a-corporate-admin",
+        "a-corporate-admin-2",
+        "a-corporate-staff",
+        "a-corporate-staff-viewall",
+        "a-corporate2-admin",
+        "a-customer",
+        "a-finance-officer",
+        "a-finance-reports",
+        "a-internal-admin",
+        "a-internal-staff",
+        "a-report-viewer"
+      ]
+    },
+    {
+      "user": "a-internal-staff",
+      "role": "internal-staff",
+      "scenario": "list users",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "list users",
+      "expectedStatus": 200,
+      "userIds": [
+        "a-corporate-admin",
+        "a-corporate-admin-2",
+        "a-corporate-staff",
+        "a-corporate-staff-viewall"
+      ]
+    },
+    {
+      "user": "a-corporate-admin-2",
+      "role": "corporate-admin",
+      "scenario": "list users",
+      "expectedStatus": 200,
+      "userIds": [
+        "a-corporate-admin",
+        "a-corporate-admin-2",
+        "a-corporate-staff",
+        "a-corporate-staff-viewall"
+      ]
+    },
+    {
+      "user": "a-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "list users",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-corporate-staff-viewall",
+      "role": "corporate-staff",
+      "scenario": "list users",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-corporate2-admin",
+      "role": "corporate-admin",
+      "scenario": "list users",
+      "expectedStatus": 200,
+      "userIds": [
+        "a-corporate2-admin"
+      ]
+    },
+    {
+      "user": "a-agency-admin",
+      "role": "agency-admin",
+      "scenario": "list users",
+      "expectedStatus": 200,
+      "userIds": [
+        "a-agency-admin",
+        "a-agency-admin-2",
+        "a-agency-staff",
+        "a-agency-staff-viewall"
+      ]
+    },
+    {
+      "user": "a-agency-admin-2",
+      "role": "agency-admin",
+      "scenario": "list users",
+      "expectedStatus": 200,
+      "userIds": [
+        "a-agency-admin",
+        "a-agency-admin-2",
+        "a-agency-staff",
+        "a-agency-staff-viewall"
+      ]
+    },
+    {
+      "user": "a-agency-staff",
+      "role": "agency-staff",
+      "scenario": "list users",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-agency-staff-viewall",
+      "role": "agency-staff",
+      "scenario": "list users",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-agency2-admin",
+      "role": "agency-admin",
+      "scenario": "list users",
+      "expectedStatus": 200,
+      "userIds": [
+        "a-agency2-admin"
+      ]
+    },
+    {
+      "user": "a-report-viewer",
+      "role": "report-viewer",
+      "scenario": "list users",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-customer",
+      "role": "customer",
+      "scenario": "list users",
+      "expectedStatus": 403
+    },
+    {
+      "user": "b-system-admin",
+      "role": "system-admin",
+      "scenario": "list users",
+      "expectedStatus": 200,
+      "userIds": [
+        "b-agency-admin",
+        "b-agency-staff",
+        "b-corporate-admin",
+        "b-corporate-staff",
+        "b-customer",
+        "b-finance-officer",
+        "b-internal-admin",
+        "b-internal-staff",
+        "b-report-viewer",
+        "b-system-admin"
+      ]
+    },
+    {
+      "user": "b-finance-officer",
+      "role": "finance-officer",
+      "scenario": "list users",
+      "expectedStatus": 403
+    },
+    {
+      "user": "b-internal-admin",
+      "role": "internal-admin",
+      "scenario": "list users",
+      "expectedStatus": 200,
+      "userIds": [
+        "b-agency-admin",
+        "b-agency-staff",
+        "b-corporate-admin",
+        "b-corporate-staff",
+        "b-customer",
+        "b-finance-officer",
+        "b-internal-admin",
+        "b-internal-staff",
+        "b-report-viewer"
+      ]
+    },
+    {
+      "user": "b-internal-staff",
+      "role": "internal-staff",
+      "scenario": "list users",
+      "expectedStatus": 403
+    },
+    {
+      "user": "b-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "list users",
+      "expectedStatus": 200,
+      "userIds": [
+        "b-corporate-admin",
+        "b-corporate-staff"
+      ]
+    },
+    {
+      "user": "b-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "list users",
+      "expectedStatus": 403
+    },
+    {
+      "user": "b-agency-admin",
+      "role": "agency-admin",
+      "scenario": "list users",
+      "expectedStatus": 200,
+      "userIds": [
+        "b-agency-admin",
+        "b-agency-staff"
+      ]
+    },
+    {
+      "user": "b-agency-staff",
+      "role": "agency-staff",
+      "scenario": "list users",
+      "expectedStatus": 403
+    },
+    {
+      "user": "b-report-viewer",
+      "role": "report-viewer",
+      "scenario": "list users",
+      "expectedStatus": 403
+    },
+    {
+      "user": "b-customer",
+      "role": "customer",
+      "scenario": "list users",
+      "expectedStatus": 403
+    }
+  ],
+  "actions": [
+    {
+      "user": "a-system-admin",
+      "role": "system-admin",
+      "scenario": "read own profile",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-system-admin",
+      "role": "system-admin",
+      "scenario": "view the access matrix",
+      "method": "GET",
+      "path": "/api/v1/access-matrix",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-system-admin",
+      "role": "system-admin",
+      "scenario": "read a booking inside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-001",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-system-admin",
+      "role": "system-admin",
+      "scenario": "read another tenant's booking",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-system-admin",
+      "role": "system-admin",
+      "scenario": "read a booking that does not exist",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-does-not-exist",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-system-admin",
+      "role": "system-admin",
+      "scenario": "cancel another tenant's booking",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-system-admin",
+      "role": "system-admin",
+      "scenario": "cancel a booking whose status does not allow it",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-003/cancel",
+      "expectedStatus": 409
+    },
+    {
+      "user": "a-finance-officer",
+      "role": "finance-officer",
+      "scenario": "read own profile",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-finance-officer",
+      "role": "finance-officer",
+      "scenario": "view the access matrix",
+      "method": "GET",
+      "path": "/api/v1/access-matrix",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-finance-officer",
+      "role": "finance-officer",
+      "scenario": "read a booking inside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-004",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-finance-officer",
+      "role": "finance-officer",
+      "scenario": "read a same-tenant booking outside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-finance-officer",
+      "role": "finance-officer",
+      "scenario": "read another tenant's booking",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-finance-officer",
+      "role": "finance-officer",
+      "scenario": "read a booking that does not exist",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-does-not-exist",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-finance-officer",
+      "role": "finance-officer",
+      "scenario": "create a booking without bookings.create",
+      "method": "POST",
+      "path": "/api/v1/bookings",
+      "expectedStatus": 403,
+      "body": {
+        "type": "Hotel",
+        "amount": 100
+      }
+    },
+    {
+      "user": "a-finance-officer",
+      "role": "finance-officer",
+      "scenario": "cancel a booking without bookings.cancel",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-001/cancel",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-finance-reports",
+      "role": "finance-officer",
+      "scenario": "read own profile",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-finance-reports",
+      "role": "finance-officer",
+      "scenario": "view the access matrix",
+      "method": "GET",
+      "path": "/api/v1/access-matrix",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-finance-reports",
+      "role": "finance-officer",
+      "scenario": "read a booking inside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-001",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-finance-reports",
+      "role": "finance-officer",
+      "scenario": "read another tenant's booking",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-finance-reports",
+      "role": "finance-officer",
+      "scenario": "read a booking that does not exist",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-does-not-exist",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-finance-reports",
+      "role": "finance-officer",
+      "scenario": "create a booking without bookings.create",
+      "method": "POST",
+      "path": "/api/v1/bookings",
+      "expectedStatus": 403,
+      "body": {
+        "type": "Hotel",
+        "amount": 100
+      }
+    },
+    {
+      "user": "a-finance-reports",
+      "role": "finance-officer",
+      "scenario": "cancel a booking without bookings.cancel",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-001/cancel",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-internal-admin",
+      "role": "internal-admin",
+      "scenario": "read own profile",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-internal-admin",
+      "role": "internal-admin",
+      "scenario": "view the access matrix",
+      "method": "GET",
+      "path": "/api/v1/access-matrix",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-internal-admin",
+      "role": "internal-admin",
+      "scenario": "read a booking inside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-004",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-internal-admin",
+      "role": "internal-admin",
+      "scenario": "read a same-tenant booking outside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-internal-admin",
+      "role": "internal-admin",
+      "scenario": "read another tenant's booking",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-internal-admin",
+      "role": "internal-admin",
+      "scenario": "read a booking that does not exist",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-does-not-exist",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-internal-admin",
+      "role": "internal-admin",
+      "scenario": "cancel a same-tenant booking outside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-internal-admin",
+      "role": "internal-admin",
+      "scenario": "cancel another tenant's booking",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-internal-admin",
+      "role": "internal-admin",
+      "scenario": "cancel a booking whose status does not allow it",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-004/cancel",
+      "expectedStatus": 409
+    },
+    {
+      "user": "a-internal-staff",
+      "role": "internal-staff",
+      "scenario": "read own profile",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-internal-staff",
+      "role": "internal-staff",
+      "scenario": "view the access matrix",
+      "method": "GET",
+      "path": "/api/v1/access-matrix",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-internal-staff",
+      "role": "internal-staff",
+      "scenario": "read a booking inside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-004",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-internal-staff",
+      "role": "internal-staff",
+      "scenario": "read a same-tenant booking outside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-internal-staff",
+      "role": "internal-staff",
+      "scenario": "read another tenant's booking",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-internal-staff",
+      "role": "internal-staff",
+      "scenario": "read a booking that does not exist",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-does-not-exist",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-internal-staff",
+      "role": "internal-staff",
+      "scenario": "cancel a same-tenant booking outside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-internal-staff",
+      "role": "internal-staff",
+      "scenario": "cancel another tenant's booking",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-internal-staff",
+      "role": "internal-staff",
+      "scenario": "cancel a booking whose status does not allow it",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-004/cancel",
+      "expectedStatus": 409
+    },
+    {
+      "user": "a-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "read own profile",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "view the access matrix",
+      "method": "GET",
+      "path": "/api/v1/access-matrix",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "read a booking inside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-034",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "read a same-tenant booking outside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "read another tenant's booking",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "read a booking that does not exist",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-does-not-exist",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "cancel a same-tenant booking outside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "cancel another tenant's booking",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "cancel a booking whose status does not allow it",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-035/cancel",
+      "expectedStatus": 409
+    },
+    {
+      "user": "a-corporate-admin-2",
+      "role": "corporate-admin",
+      "scenario": "read own profile",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-corporate-admin-2",
+      "role": "corporate-admin",
+      "scenario": "view the access matrix",
+      "method": "GET",
+      "path": "/api/v1/access-matrix",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-corporate-admin-2",
+      "role": "corporate-admin",
+      "scenario": "read a booking inside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-034",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-corporate-admin-2",
+      "role": "corporate-admin",
+      "scenario": "read a same-tenant booking outside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate-admin-2",
+      "role": "corporate-admin",
+      "scenario": "read another tenant's booking",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate-admin-2",
+      "role": "corporate-admin",
+      "scenario": "read a booking that does not exist",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-does-not-exist",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate-admin-2",
+      "role": "corporate-admin",
+      "scenario": "cancel a same-tenant booking outside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate-admin-2",
+      "role": "corporate-admin",
+      "scenario": "cancel another tenant's booking",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate-admin-2",
+      "role": "corporate-admin",
+      "scenario": "cancel a booking whose status does not allow it",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-035/cancel",
+      "expectedStatus": 409
+    },
+    {
+      "user": "a-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "read own profile",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "view the access matrix",
+      "method": "GET",
+      "path": "/api/v1/access-matrix",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "read a booking inside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-037",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "read a same-tenant booking outside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "read another tenant's booking",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "read a booking that does not exist",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-does-not-exist",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "cancel a same-tenant booking outside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "cancel another tenant's booking",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "cancel a booking whose status does not allow it",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-037/cancel",
+      "expectedStatus": 409
+    },
+    {
+      "user": "a-corporate-staff-viewall",
+      "role": "corporate-staff",
+      "scenario": "read own profile",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-corporate-staff-viewall",
+      "role": "corporate-staff",
+      "scenario": "view the access matrix",
+      "method": "GET",
+      "path": "/api/v1/access-matrix",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-corporate-staff-viewall",
+      "role": "corporate-staff",
+      "scenario": "read a booking inside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-034",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-corporate-staff-viewall",
+      "role": "corporate-staff",
+      "scenario": "read a same-tenant booking outside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate-staff-viewall",
+      "role": "corporate-staff",
+      "scenario": "read another tenant's booking",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate-staff-viewall",
+      "role": "corporate-staff",
+      "scenario": "read a booking that does not exist",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-does-not-exist",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate-staff-viewall",
+      "role": "corporate-staff",
+      "scenario": "cancel a same-tenant booking outside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate-staff-viewall",
+      "role": "corporate-staff",
+      "scenario": "cancel another tenant's booking",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate-staff-viewall",
+      "role": "corporate-staff",
+      "scenario": "cancel a booking whose status does not allow it",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-035/cancel",
+      "expectedStatus": 409
+    },
+    {
+      "user": "a-corporate2-admin",
+      "role": "corporate-admin",
+      "scenario": "read own profile",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-corporate2-admin",
+      "role": "corporate-admin",
+      "scenario": "view the access matrix",
+      "method": "GET",
+      "path": "/api/v1/access-matrix",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-corporate2-admin",
+      "role": "corporate-admin",
+      "scenario": "read a booking inside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-043",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-corporate2-admin",
+      "role": "corporate-admin",
+      "scenario": "read a same-tenant booking outside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate2-admin",
+      "role": "corporate-admin",
+      "scenario": "read another tenant's booking",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate2-admin",
+      "role": "corporate-admin",
+      "scenario": "read a booking that does not exist",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-does-not-exist",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate2-admin",
+      "role": "corporate-admin",
+      "scenario": "cancel a same-tenant booking outside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate2-admin",
+      "role": "corporate-admin",
+      "scenario": "cancel another tenant's booking",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate2-admin",
+      "role": "corporate-admin",
+      "scenario": "cancel a booking whose status does not allow it",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-043/cancel",
+      "expectedStatus": 409
+    },
+    {
+      "user": "a-agency-admin",
+      "role": "agency-admin",
+      "scenario": "read own profile",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-agency-admin",
+      "role": "agency-admin",
+      "scenario": "view the access matrix",
+      "method": "GET",
+      "path": "/api/v1/access-matrix",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-agency-admin",
+      "role": "agency-admin",
+      "scenario": "read a booking inside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-017",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-agency-admin",
+      "role": "agency-admin",
+      "scenario": "read a same-tenant booking outside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency-admin",
+      "role": "agency-admin",
+      "scenario": "read another tenant's booking",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency-admin",
+      "role": "agency-admin",
+      "scenario": "read a booking that does not exist",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-does-not-exist",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency-admin",
+      "role": "agency-admin",
+      "scenario": "cancel a same-tenant booking outside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency-admin",
+      "role": "agency-admin",
+      "scenario": "cancel another tenant's booking",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency-admin",
+      "role": "agency-admin",
+      "scenario": "cancel a booking whose status does not allow it",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-020/cancel",
+      "expectedStatus": 409
+    },
+    {
+      "user": "a-agency-admin-2",
+      "role": "agency-admin",
+      "scenario": "read own profile",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-agency-admin-2",
+      "role": "agency-admin",
+      "scenario": "view the access matrix",
+      "method": "GET",
+      "path": "/api/v1/access-matrix",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-agency-admin-2",
+      "role": "agency-admin",
+      "scenario": "read a booking inside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-017",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-agency-admin-2",
+      "role": "agency-admin",
+      "scenario": "read a same-tenant booking outside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency-admin-2",
+      "role": "agency-admin",
+      "scenario": "read another tenant's booking",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency-admin-2",
+      "role": "agency-admin",
+      "scenario": "read a booking that does not exist",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-does-not-exist",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency-admin-2",
+      "role": "agency-admin",
+      "scenario": "cancel a same-tenant booking outside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency-admin-2",
+      "role": "agency-admin",
+      "scenario": "cancel another tenant's booking",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency-admin-2",
+      "role": "agency-admin",
+      "scenario": "cancel a booking whose status does not allow it",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-020/cancel",
+      "expectedStatus": 409
+    },
+    {
+      "user": "a-agency-staff",
+      "role": "agency-staff",
+      "scenario": "read own profile",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-agency-staff",
+      "role": "agency-staff",
+      "scenario": "view the access matrix",
+      "method": "GET",
+      "path": "/api/v1/access-matrix",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-agency-staff",
+      "role": "agency-staff",
+      "scenario": "read a booking inside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-024",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-agency-staff",
+      "role": "agency-staff",
+      "scenario": "read a same-tenant booking outside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency-staff",
+      "role": "agency-staff",
+      "scenario": "read another tenant's booking",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency-staff",
+      "role": "agency-staff",
+      "scenario": "read a booking that does not exist",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-does-not-exist",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency-staff",
+      "role": "agency-staff",
+      "scenario": "cancel a same-tenant booking outside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency-staff",
+      "role": "agency-staff",
+      "scenario": "cancel another tenant's booking",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency-staff",
+      "role": "agency-staff",
+      "scenario": "cancel a booking whose status does not allow it",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-027/cancel",
+      "expectedStatus": 409
+    },
+    {
+      "user": "a-agency-staff-viewall",
+      "role": "agency-staff",
+      "scenario": "read own profile",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-agency-staff-viewall",
+      "role": "agency-staff",
+      "scenario": "view the access matrix",
+      "method": "GET",
+      "path": "/api/v1/access-matrix",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-agency-staff-viewall",
+      "role": "agency-staff",
+      "scenario": "read a booking inside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-017",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-agency-staff-viewall",
+      "role": "agency-staff",
+      "scenario": "read a same-tenant booking outside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency-staff-viewall",
+      "role": "agency-staff",
+      "scenario": "read another tenant's booking",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency-staff-viewall",
+      "role": "agency-staff",
+      "scenario": "read a booking that does not exist",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-does-not-exist",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency-staff-viewall",
+      "role": "agency-staff",
+      "scenario": "cancel a same-tenant booking outside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency-staff-viewall",
+      "role": "agency-staff",
+      "scenario": "cancel another tenant's booking",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency-staff-viewall",
+      "role": "agency-staff",
+      "scenario": "cancel a booking whose status does not allow it",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-020/cancel",
+      "expectedStatus": 409
+    },
+    {
+      "user": "a-agency2-admin",
+      "role": "agency-admin",
+      "scenario": "read own profile",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-agency2-admin",
+      "role": "agency-admin",
+      "scenario": "view the access matrix",
+      "method": "GET",
+      "path": "/api/v1/access-matrix",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-agency2-admin",
+      "role": "agency-admin",
+      "scenario": "read a booking inside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-031",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-agency2-admin",
+      "role": "agency-admin",
+      "scenario": "read a same-tenant booking outside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency2-admin",
+      "role": "agency-admin",
+      "scenario": "read another tenant's booking",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency2-admin",
+      "role": "agency-admin",
+      "scenario": "read a booking that does not exist",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-does-not-exist",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency2-admin",
+      "role": "agency-admin",
+      "scenario": "cancel a same-tenant booking outside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency2-admin",
+      "role": "agency-admin",
+      "scenario": "cancel another tenant's booking",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-report-viewer",
+      "role": "report-viewer",
+      "scenario": "read own profile",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-report-viewer",
+      "role": "report-viewer",
+      "scenario": "view the access matrix",
+      "method": "GET",
+      "path": "/api/v1/access-matrix",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-report-viewer",
+      "role": "report-viewer",
+      "scenario": "read a booking without bookings.read",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-001",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-report-viewer",
+      "role": "report-viewer",
+      "scenario": "create a booking without bookings.create",
+      "method": "POST",
+      "path": "/api/v1/bookings",
+      "expectedStatus": 403,
+      "body": {
+        "type": "Hotel",
+        "amount": 100
+      }
+    },
+    {
+      "user": "a-report-viewer",
+      "role": "report-viewer",
+      "scenario": "cancel a booking without bookings.cancel",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-001/cancel",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-customer",
+      "role": "customer",
+      "scenario": "read own profile",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-customer",
+      "role": "customer",
+      "scenario": "view the access matrix",
+      "method": "GET",
+      "path": "/api/v1/access-matrix",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-customer",
+      "role": "customer",
+      "scenario": "read a booking inside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-045",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-customer",
+      "role": "customer",
+      "scenario": "read a same-tenant booking outside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-customer",
+      "role": "customer",
+      "scenario": "read another tenant's booking",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-customer",
+      "role": "customer",
+      "scenario": "read a booking that does not exist",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-does-not-exist",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-customer",
+      "role": "customer",
+      "scenario": "cancel a same-tenant booking outside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-customer",
+      "role": "customer",
+      "scenario": "cancel another tenant's booking",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-customer",
+      "role": "customer",
+      "scenario": "cancel a booking whose status does not allow it",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-045/cancel",
+      "expectedStatus": 409
+    },
+    {
+      "user": "b-system-admin",
+      "role": "system-admin",
+      "scenario": "read own profile",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "expectedStatus": 200
+    },
+    {
+      "user": "b-system-admin",
+      "role": "system-admin",
+      "scenario": "view the access matrix",
+      "method": "GET",
+      "path": "/api/v1/access-matrix",
+      "expectedStatus": 200
+    },
+    {
+      "user": "b-system-admin",
+      "role": "system-admin",
+      "scenario": "read a booking inside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-001",
+      "expectedStatus": 200
+    },
+    {
+      "user": "b-system-admin",
+      "role": "system-admin",
+      "scenario": "read another tenant's booking",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-system-admin",
+      "role": "system-admin",
+      "scenario": "read a booking that does not exist",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-does-not-exist",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-system-admin",
+      "role": "system-admin",
+      "scenario": "cancel another tenant's booking",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-system-admin",
+      "role": "system-admin",
+      "scenario": "cancel a booking whose status does not allow it",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-003/cancel",
+      "expectedStatus": 409
+    },
+    {
+      "user": "b-finance-officer",
+      "role": "finance-officer",
+      "scenario": "read own profile",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "expectedStatus": 200
+    },
+    {
+      "user": "b-finance-officer",
+      "role": "finance-officer",
+      "scenario": "view the access matrix",
+      "method": "GET",
+      "path": "/api/v1/access-matrix",
+      "expectedStatus": 403
+    },
+    {
+      "user": "b-finance-officer",
+      "role": "finance-officer",
+      "scenario": "read a booking inside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-004",
+      "expectedStatus": 200
+    },
+    {
+      "user": "b-finance-officer",
+      "role": "finance-officer",
+      "scenario": "read a same-tenant booking outside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-finance-officer",
+      "role": "finance-officer",
+      "scenario": "read another tenant's booking",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-finance-officer",
+      "role": "finance-officer",
+      "scenario": "read a booking that does not exist",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-does-not-exist",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-finance-officer",
+      "role": "finance-officer",
+      "scenario": "create a booking without bookings.create",
+      "method": "POST",
+      "path": "/api/v1/bookings",
+      "expectedStatus": 403,
+      "body": {
+        "type": "Hotel",
+        "amount": 100
+      }
+    },
+    {
+      "user": "b-finance-officer",
+      "role": "finance-officer",
+      "scenario": "cancel a booking without bookings.cancel",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-001/cancel",
+      "expectedStatus": 403
+    },
+    {
+      "user": "b-internal-admin",
+      "role": "internal-admin",
+      "scenario": "read own profile",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "expectedStatus": 200
+    },
+    {
+      "user": "b-internal-admin",
+      "role": "internal-admin",
+      "scenario": "view the access matrix",
+      "method": "GET",
+      "path": "/api/v1/access-matrix",
+      "expectedStatus": 403
+    },
+    {
+      "user": "b-internal-admin",
+      "role": "internal-admin",
+      "scenario": "read a booking inside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-003",
+      "expectedStatus": 200
+    },
+    {
+      "user": "b-internal-admin",
+      "role": "internal-admin",
+      "scenario": "read a same-tenant booking outside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-internal-admin",
+      "role": "internal-admin",
+      "scenario": "read another tenant's booking",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-internal-admin",
+      "role": "internal-admin",
+      "scenario": "read a booking that does not exist",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-does-not-exist",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-internal-admin",
+      "role": "internal-admin",
+      "scenario": "cancel a same-tenant booking outside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-internal-admin",
+      "role": "internal-admin",
+      "scenario": "cancel another tenant's booking",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-internal-admin",
+      "role": "internal-admin",
+      "scenario": "cancel a booking whose status does not allow it",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-003/cancel",
+      "expectedStatus": 409
+    },
+    {
+      "user": "b-internal-staff",
+      "role": "internal-staff",
+      "scenario": "read own profile",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "expectedStatus": 200
+    },
+    {
+      "user": "b-internal-staff",
+      "role": "internal-staff",
+      "scenario": "view the access matrix",
+      "method": "GET",
+      "path": "/api/v1/access-matrix",
+      "expectedStatus": 403
+    },
+    {
+      "user": "b-internal-staff",
+      "role": "internal-staff",
+      "scenario": "read a booking inside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-003",
+      "expectedStatus": 200
+    },
+    {
+      "user": "b-internal-staff",
+      "role": "internal-staff",
+      "scenario": "read a same-tenant booking outside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-internal-staff",
+      "role": "internal-staff",
+      "scenario": "read another tenant's booking",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-internal-staff",
+      "role": "internal-staff",
+      "scenario": "read a booking that does not exist",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-does-not-exist",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-internal-staff",
+      "role": "internal-staff",
+      "scenario": "cancel a same-tenant booking outside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-internal-staff",
+      "role": "internal-staff",
+      "scenario": "cancel another tenant's booking",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-internal-staff",
+      "role": "internal-staff",
+      "scenario": "cancel a booking whose status does not allow it",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-003/cancel",
+      "expectedStatus": 409
+    },
+    {
+      "user": "b-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "read own profile",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "expectedStatus": 200
+    },
+    {
+      "user": "b-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "view the access matrix",
+      "method": "GET",
+      "path": "/api/v1/access-matrix",
+      "expectedStatus": 403
+    },
+    {
+      "user": "b-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "read a booking inside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-009",
+      "expectedStatus": 200
+    },
+    {
+      "user": "b-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "read a same-tenant booking outside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "read another tenant's booking",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "read a booking that does not exist",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-does-not-exist",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "cancel a same-tenant booking outside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "cancel another tenant's booking",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "read own profile",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "expectedStatus": 200
+    },
+    {
+      "user": "b-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "view the access matrix",
+      "method": "GET",
+      "path": "/api/v1/access-matrix",
+      "expectedStatus": 403
+    },
+    {
+      "user": "b-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "read a same-tenant booking outside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "read another tenant's booking",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "read a booking that does not exist",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-does-not-exist",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "cancel a same-tenant booking outside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "cancel another tenant's booking",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-agency-admin",
+      "role": "agency-admin",
+      "scenario": "read own profile",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "expectedStatus": 200
+    },
+    {
+      "user": "b-agency-admin",
+      "role": "agency-admin",
+      "scenario": "view the access matrix",
+      "method": "GET",
+      "path": "/api/v1/access-matrix",
+      "expectedStatus": 403
+    },
+    {
+      "user": "b-agency-admin",
+      "role": "agency-admin",
+      "scenario": "read a booking inside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-006",
+      "expectedStatus": 200
+    },
+    {
+      "user": "b-agency-admin",
+      "role": "agency-admin",
+      "scenario": "read a same-tenant booking outside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-agency-admin",
+      "role": "agency-admin",
+      "scenario": "read another tenant's booking",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-agency-admin",
+      "role": "agency-admin",
+      "scenario": "read a booking that does not exist",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-does-not-exist",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-agency-admin",
+      "role": "agency-admin",
+      "scenario": "cancel a same-tenant booking outside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-agency-admin",
+      "role": "agency-admin",
+      "scenario": "cancel another tenant's booking",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-agency-admin",
+      "role": "agency-admin",
+      "scenario": "cancel a booking whose status does not allow it",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-006/cancel",
+      "expectedStatus": 409
+    },
+    {
+      "user": "b-agency-staff",
+      "role": "agency-staff",
+      "scenario": "read own profile",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "expectedStatus": 200
+    },
+    {
+      "user": "b-agency-staff",
+      "role": "agency-staff",
+      "scenario": "view the access matrix",
+      "method": "GET",
+      "path": "/api/v1/access-matrix",
+      "expectedStatus": 403
+    },
+    {
+      "user": "b-agency-staff",
+      "role": "agency-staff",
+      "scenario": "read a booking inside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-008",
+      "expectedStatus": 200
+    },
+    {
+      "user": "b-agency-staff",
+      "role": "agency-staff",
+      "scenario": "read a same-tenant booking outside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-agency-staff",
+      "role": "agency-staff",
+      "scenario": "read another tenant's booking",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-agency-staff",
+      "role": "agency-staff",
+      "scenario": "read a booking that does not exist",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-does-not-exist",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-agency-staff",
+      "role": "agency-staff",
+      "scenario": "cancel a same-tenant booking outside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-agency-staff",
+      "role": "agency-staff",
+      "scenario": "cancel another tenant's booking",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-report-viewer",
+      "role": "report-viewer",
+      "scenario": "read own profile",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "expectedStatus": 200
+    },
+    {
+      "user": "b-report-viewer",
+      "role": "report-viewer",
+      "scenario": "view the access matrix",
+      "method": "GET",
+      "path": "/api/v1/access-matrix",
+      "expectedStatus": 403
+    },
+    {
+      "user": "b-report-viewer",
+      "role": "report-viewer",
+      "scenario": "read a booking without bookings.read",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-001",
+      "expectedStatus": 403
+    },
+    {
+      "user": "b-report-viewer",
+      "role": "report-viewer",
+      "scenario": "create a booking without bookings.create",
+      "method": "POST",
+      "path": "/api/v1/bookings",
+      "expectedStatus": 403,
+      "body": {
+        "type": "Hotel",
+        "amount": 100
+      }
+    },
+    {
+      "user": "b-report-viewer",
+      "role": "report-viewer",
+      "scenario": "cancel a booking without bookings.cancel",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-001/cancel",
+      "expectedStatus": 403
+    },
+    {
+      "user": "b-customer",
+      "role": "customer",
+      "scenario": "read own profile",
+      "method": "GET",
+      "path": "/api/v1/me",
+      "expectedStatus": 200
+    },
+    {
+      "user": "b-customer",
+      "role": "customer",
+      "scenario": "view the access matrix",
+      "method": "GET",
+      "path": "/api/v1/access-matrix",
+      "expectedStatus": 403
+    },
+    {
+      "user": "b-customer",
+      "role": "customer",
+      "scenario": "read a booking inside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-011",
+      "expectedStatus": 200
+    },
+    {
+      "user": "b-customer",
+      "role": "customer",
+      "scenario": "read a same-tenant booking outside the scope",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-b-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-customer",
+      "role": "customer",
+      "scenario": "read another tenant's booking",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-a-001",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-customer",
+      "role": "customer",
+      "scenario": "read a booking that does not exist",
+      "method": "GET",
+      "path": "/api/v1/bookings/bk-does-not-exist",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-customer",
+      "role": "customer",
+      "scenario": "cancel a same-tenant booking outside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-customer",
+      "role": "customer",
+      "scenario": "cancel another tenant's booking",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-001/cancel",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-customer",
+      "role": "customer",
+      "scenario": "cancel a booking whose status does not allow it",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-011/cancel",
+      "expectedStatus": 409
+    },
+    {
+      "user": "b-agency-staff",
+      "role": "agency-staff",
+      "scenario": "cancel a draft or confirmed booking inside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-008/cancel",
+      "expectedStatus": 200
+    },
+    {
+      "user": "b-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "cancel a draft or confirmed booking inside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-009/cancel",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "cancel a draft or confirmed booking inside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-039/cancel",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-agency2-admin",
+      "role": "agency-admin",
+      "scenario": "cancel a draft or confirmed booking inside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-031/cancel",
+      "expectedStatus": 200
+    },
+    {
+      "user": "b-agency-admin",
+      "role": "agency-admin",
+      "scenario": "cancel a draft or confirmed booking inside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-007/cancel",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-agency-staff",
+      "role": "agency-staff",
+      "scenario": "cancel a draft or confirmed booking inside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-024/cancel",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-customer",
+      "role": "customer",
+      "scenario": "cancel a draft or confirmed booking inside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-047/cancel",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "cancel a draft or confirmed booking inside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-034/cancel",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-corporate-admin-2",
+      "role": "corporate-admin",
+      "scenario": "cancel a draft or confirmed booking inside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-040/cancel",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-corporate-staff-viewall",
+      "role": "corporate-staff",
+      "scenario": "cancel a draft or confirmed booking inside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-041/cancel",
+      "expectedStatus": 200
+    },
+    {
+      "user": "b-system-admin",
+      "role": "system-admin",
+      "scenario": "cancel a draft or confirmed booking inside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-b-001/cancel",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-internal-admin",
+      "role": "internal-admin",
+      "scenario": "cancel a draft or confirmed booking inside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-007/cancel",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-internal-staff",
+      "role": "internal-staff",
+      "scenario": "cancel a draft or confirmed booking inside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-008/cancel",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-agency-admin",
+      "role": "agency-admin",
+      "scenario": "cancel a draft or confirmed booking inside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-017/cancel",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-agency-admin-2",
+      "role": "agency-admin",
+      "scenario": "cancel a draft or confirmed booking inside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-018/cancel",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-agency-staff-viewall",
+      "role": "agency-staff",
+      "scenario": "cancel a draft or confirmed booking inside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-023/cancel",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-system-admin",
+      "role": "system-admin",
+      "scenario": "cancel a draft or confirmed booking inside the scope",
+      "method": "POST",
+      "path": "/api/v1/bookings/bk-a-001/cancel",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-system-admin",
+      "role": "system-admin",
+      "scenario": "read a user inside the scope",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-admin",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-system-admin",
+      "role": "system-admin",
+      "scenario": "read another tenant user",
+      "method": "GET",
+      "path": "/api/v1/users/b-agency-admin",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-finance-officer",
+      "role": "finance-officer",
+      "scenario": "read a user without users.read",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-admin",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-finance-reports",
+      "role": "finance-officer",
+      "scenario": "read a user without users.read",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-admin",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-internal-admin",
+      "role": "internal-admin",
+      "scenario": "read a user inside the scope",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-admin",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-internal-admin",
+      "role": "internal-admin",
+      "scenario": "read a same-tenant user outside the scope",
+      "method": "GET",
+      "path": "/api/v1/users/a-system-admin",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-internal-admin",
+      "role": "internal-admin",
+      "scenario": "read another tenant user",
+      "method": "GET",
+      "path": "/api/v1/users/b-agency-admin",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-internal-staff",
+      "role": "internal-staff",
+      "scenario": "read a user without users.read",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-admin",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "read a user inside the scope",
+      "method": "GET",
+      "path": "/api/v1/users/a-corporate-admin",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "read a same-tenant user outside the scope",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-admin",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "read another tenant user",
+      "method": "GET",
+      "path": "/api/v1/users/b-agency-admin",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate-admin-2",
+      "role": "corporate-admin",
+      "scenario": "read a user inside the scope",
+      "method": "GET",
+      "path": "/api/v1/users/a-corporate-admin",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-corporate-admin-2",
+      "role": "corporate-admin",
+      "scenario": "read a same-tenant user outside the scope",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-admin",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate-admin-2",
+      "role": "corporate-admin",
+      "scenario": "read another tenant user",
+      "method": "GET",
+      "path": "/api/v1/users/b-agency-admin",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "read a user without users.read",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-admin",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-corporate-staff-viewall",
+      "role": "corporate-staff",
+      "scenario": "read a user without users.read",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-admin",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-corporate2-admin",
+      "role": "corporate-admin",
+      "scenario": "read a user inside the scope",
+      "method": "GET",
+      "path": "/api/v1/users/a-corporate2-admin",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-corporate2-admin",
+      "role": "corporate-admin",
+      "scenario": "read a same-tenant user outside the scope",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-admin",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-corporate2-admin",
+      "role": "corporate-admin",
+      "scenario": "read another tenant user",
+      "method": "GET",
+      "path": "/api/v1/users/b-agency-admin",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency-admin",
+      "role": "agency-admin",
+      "scenario": "read a user inside the scope",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-admin",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-agency-admin",
+      "role": "agency-admin",
+      "scenario": "read a same-tenant user outside the scope",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency2-admin",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency-admin",
+      "role": "agency-admin",
+      "scenario": "read another tenant user",
+      "method": "GET",
+      "path": "/api/v1/users/b-agency-admin",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency-admin-2",
+      "role": "agency-admin",
+      "scenario": "read a user inside the scope",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-admin",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-agency-admin-2",
+      "role": "agency-admin",
+      "scenario": "read a same-tenant user outside the scope",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency2-admin",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency-admin-2",
+      "role": "agency-admin",
+      "scenario": "read another tenant user",
+      "method": "GET",
+      "path": "/api/v1/users/b-agency-admin",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency-staff",
+      "role": "agency-staff",
+      "scenario": "read a user without users.read",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-admin",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-agency-staff-viewall",
+      "role": "agency-staff",
+      "scenario": "read a user without users.read",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-admin",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-agency2-admin",
+      "role": "agency-admin",
+      "scenario": "read a user inside the scope",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency2-admin",
+      "expectedStatus": 200
+    },
+    {
+      "user": "a-agency2-admin",
+      "role": "agency-admin",
+      "scenario": "read a same-tenant user outside the scope",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-admin",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-agency2-admin",
+      "role": "agency-admin",
+      "scenario": "read another tenant user",
+      "method": "GET",
+      "path": "/api/v1/users/b-agency-admin",
+      "expectedStatus": 404
+    },
+    {
+      "user": "a-report-viewer",
+      "role": "report-viewer",
+      "scenario": "read a user without users.read",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-admin",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-customer",
+      "role": "customer",
+      "scenario": "read a user without users.read",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-admin",
+      "expectedStatus": 403
+    },
+    {
+      "user": "b-system-admin",
+      "role": "system-admin",
+      "scenario": "read a user inside the scope",
+      "method": "GET",
+      "path": "/api/v1/users/b-agency-admin",
+      "expectedStatus": 200
+    },
+    {
+      "user": "b-system-admin",
+      "role": "system-admin",
+      "scenario": "read another tenant user",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-admin",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-finance-officer",
+      "role": "finance-officer",
+      "scenario": "read a user without users.read",
+      "method": "GET",
+      "path": "/api/v1/users/b-agency-admin",
+      "expectedStatus": 403
+    },
+    {
+      "user": "b-internal-admin",
+      "role": "internal-admin",
+      "scenario": "read a user inside the scope",
+      "method": "GET",
+      "path": "/api/v1/users/b-agency-admin",
+      "expectedStatus": 200
+    },
+    {
+      "user": "b-internal-admin",
+      "role": "internal-admin",
+      "scenario": "read a same-tenant user outside the scope",
+      "method": "GET",
+      "path": "/api/v1/users/b-system-admin",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-internal-admin",
+      "role": "internal-admin",
+      "scenario": "read another tenant user",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-admin",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-internal-staff",
+      "role": "internal-staff",
+      "scenario": "read a user without users.read",
+      "method": "GET",
+      "path": "/api/v1/users/b-agency-admin",
+      "expectedStatus": 403
+    },
+    {
+      "user": "b-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "read a user inside the scope",
+      "method": "GET",
+      "path": "/api/v1/users/b-corporate-admin",
+      "expectedStatus": 200
+    },
+    {
+      "user": "b-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "read a same-tenant user outside the scope",
+      "method": "GET",
+      "path": "/api/v1/users/b-agency-admin",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "read another tenant user",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-admin",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "read a user without users.read",
+      "method": "GET",
+      "path": "/api/v1/users/b-agency-admin",
+      "expectedStatus": 403
+    },
+    {
+      "user": "b-agency-admin",
+      "role": "agency-admin",
+      "scenario": "read a user inside the scope",
+      "method": "GET",
+      "path": "/api/v1/users/b-agency-admin",
+      "expectedStatus": 200
+    },
+    {
+      "user": "b-agency-admin",
+      "role": "agency-admin",
+      "scenario": "read a same-tenant user outside the scope",
+      "method": "GET",
+      "path": "/api/v1/users/b-corporate-admin",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-agency-admin",
+      "role": "agency-admin",
+      "scenario": "read another tenant user",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-admin",
+      "expectedStatus": 404
+    },
+    {
+      "user": "b-agency-staff",
+      "role": "agency-staff",
+      "scenario": "read a user without users.read",
+      "method": "GET",
+      "path": "/api/v1/users/b-agency-admin",
+      "expectedStatus": 403
+    },
+    {
+      "user": "b-report-viewer",
+      "role": "report-viewer",
+      "scenario": "read a user without users.read",
+      "method": "GET",
+      "path": "/api/v1/users/b-agency-admin",
+      "expectedStatus": 403
+    },
+    {
+      "user": "b-customer",
+      "role": "customer",
+      "scenario": "read a user without users.read",
+      "method": "GET",
+      "path": "/api/v1/users/b-agency-admin",
+      "expectedStatus": 403
+    },
+    {
+      "user": "a-system-admin",
+      "role": "system-admin",
+      "scenario": "read the permission catalog",
+      "method": "GET",
+      "path": "/api/v1/permissions",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-system-admin",
+      "role": "system-admin",
+      "scenario": "list the roles",
+      "method": "GET",
+      "path": "/api/v1/roles",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-system-admin",
+      "role": "system-admin",
+      "scenario": "read one role",
+      "method": "GET",
+      "path": "/api/v1/roles/agency-staff",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-system-admin",
+      "role": "system-admin",
+      "scenario": "read an unknown role",
+      "method": "GET",
+      "path": "/api/v1/roles/no-such-role",
+      "expectedStatus": 404,
+      "body": null
+    },
+    {
+      "user": "a-system-admin",
+      "role": "system-admin",
+      "scenario": "edit role defaults with an unknown permission",
+      "method": "PUT",
+      "path": "/api/v1/roles/agency-staff/permissions",
+      "expectedStatus": 400,
+      "body": {
+        "permissions": [
+          "bookings.not_a_permission"
+        ]
+      }
+    },
+    {
+      "user": "a-system-admin",
+      "role": "system-admin",
+      "scenario": "read a user's permissions",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-system-admin",
+      "role": "system-admin",
+      "scenario": "edit a user's permissions without If-Match",
+      "method": "PUT",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 428,
+      "body": {}
+    },
+    {
+      "user": "a-finance-officer",
+      "role": "finance-officer",
+      "scenario": "read the permission catalog",
+      "method": "GET",
+      "path": "/api/v1/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-finance-officer",
+      "role": "finance-officer",
+      "scenario": "list the roles",
+      "method": "GET",
+      "path": "/api/v1/roles",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-finance-officer",
+      "role": "finance-officer",
+      "scenario": "read one role",
+      "method": "GET",
+      "path": "/api/v1/roles/agency-staff",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-finance-officer",
+      "role": "finance-officer",
+      "scenario": "read an unknown role",
+      "method": "GET",
+      "path": "/api/v1/roles/no-such-role",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-finance-officer",
+      "role": "finance-officer",
+      "scenario": "edit role defaults with an unknown permission",
+      "method": "PUT",
+      "path": "/api/v1/roles/agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {
+        "permissions": [
+          "bookings.not_a_permission"
+        ]
+      }
+    },
+    {
+      "user": "a-finance-officer",
+      "role": "finance-officer",
+      "scenario": "read a user's permissions",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-finance-officer",
+      "role": "finance-officer",
+      "scenario": "edit a user's permissions without If-Match",
+      "method": "PUT",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {}
+    },
+    {
+      "user": "a-finance-reports",
+      "role": "finance-officer",
+      "scenario": "read the permission catalog",
+      "method": "GET",
+      "path": "/api/v1/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-finance-reports",
+      "role": "finance-officer",
+      "scenario": "list the roles",
+      "method": "GET",
+      "path": "/api/v1/roles",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-finance-reports",
+      "role": "finance-officer",
+      "scenario": "read one role",
+      "method": "GET",
+      "path": "/api/v1/roles/agency-staff",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-finance-reports",
+      "role": "finance-officer",
+      "scenario": "read an unknown role",
+      "method": "GET",
+      "path": "/api/v1/roles/no-such-role",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-finance-reports",
+      "role": "finance-officer",
+      "scenario": "edit role defaults with an unknown permission",
+      "method": "PUT",
+      "path": "/api/v1/roles/agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {
+        "permissions": [
+          "bookings.not_a_permission"
+        ]
+      }
+    },
+    {
+      "user": "a-finance-reports",
+      "role": "finance-officer",
+      "scenario": "read a user's permissions",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-finance-reports",
+      "role": "finance-officer",
+      "scenario": "edit a user's permissions without If-Match",
+      "method": "PUT",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {}
+    },
+    {
+      "user": "a-internal-admin",
+      "role": "internal-admin",
+      "scenario": "read the permission catalog",
+      "method": "GET",
+      "path": "/api/v1/permissions",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-internal-admin",
+      "role": "internal-admin",
+      "scenario": "list the roles",
+      "method": "GET",
+      "path": "/api/v1/roles",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-internal-admin",
+      "role": "internal-admin",
+      "scenario": "read one role",
+      "method": "GET",
+      "path": "/api/v1/roles/agency-staff",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-internal-admin",
+      "role": "internal-admin",
+      "scenario": "read an unknown role",
+      "method": "GET",
+      "path": "/api/v1/roles/no-such-role",
+      "expectedStatus": 404,
+      "body": null
+    },
+    {
+      "user": "a-internal-admin",
+      "role": "internal-admin",
+      "scenario": "edit role defaults with an unknown permission",
+      "method": "PUT",
+      "path": "/api/v1/roles/agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {
+        "permissions": [
+          "bookings.not_a_permission"
+        ]
+      }
+    },
+    {
+      "user": "a-internal-admin",
+      "role": "internal-admin",
+      "scenario": "read a user's permissions",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-internal-admin",
+      "role": "internal-admin",
+      "scenario": "edit a user's permissions without If-Match",
+      "method": "PUT",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 428,
+      "body": {}
+    },
+    {
+      "user": "a-internal-staff",
+      "role": "internal-staff",
+      "scenario": "read the permission catalog",
+      "method": "GET",
+      "path": "/api/v1/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-internal-staff",
+      "role": "internal-staff",
+      "scenario": "list the roles",
+      "method": "GET",
+      "path": "/api/v1/roles",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-internal-staff",
+      "role": "internal-staff",
+      "scenario": "read one role",
+      "method": "GET",
+      "path": "/api/v1/roles/agency-staff",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-internal-staff",
+      "role": "internal-staff",
+      "scenario": "read an unknown role",
+      "method": "GET",
+      "path": "/api/v1/roles/no-such-role",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-internal-staff",
+      "role": "internal-staff",
+      "scenario": "edit role defaults with an unknown permission",
+      "method": "PUT",
+      "path": "/api/v1/roles/agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {
+        "permissions": [
+          "bookings.not_a_permission"
+        ]
+      }
+    },
+    {
+      "user": "a-internal-staff",
+      "role": "internal-staff",
+      "scenario": "read a user's permissions",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-internal-staff",
+      "role": "internal-staff",
+      "scenario": "edit a user's permissions without If-Match",
+      "method": "PUT",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {}
+    },
+    {
+      "user": "a-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "read the permission catalog",
+      "method": "GET",
+      "path": "/api/v1/permissions",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "list the roles",
+      "method": "GET",
+      "path": "/api/v1/roles",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "read one role",
+      "method": "GET",
+      "path": "/api/v1/roles/agency-staff",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "read an unknown role",
+      "method": "GET",
+      "path": "/api/v1/roles/no-such-role",
+      "expectedStatus": 404,
+      "body": null
+    },
+    {
+      "user": "a-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "edit role defaults with an unknown permission",
+      "method": "PUT",
+      "path": "/api/v1/roles/agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {
+        "permissions": [
+          "bookings.not_a_permission"
+        ]
+      }
+    },
+    {
+      "user": "a-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "read a user's permissions",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 404,
+      "body": null
+    },
+    {
+      "user": "a-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "edit a user's permissions without If-Match",
+      "method": "PUT",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 404,
+      "body": {}
+    },
+    {
+      "user": "a-corporate-admin-2",
+      "role": "corporate-admin",
+      "scenario": "read the permission catalog",
+      "method": "GET",
+      "path": "/api/v1/permissions",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-corporate-admin-2",
+      "role": "corporate-admin",
+      "scenario": "list the roles",
+      "method": "GET",
+      "path": "/api/v1/roles",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-corporate-admin-2",
+      "role": "corporate-admin",
+      "scenario": "read one role",
+      "method": "GET",
+      "path": "/api/v1/roles/agency-staff",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-corporate-admin-2",
+      "role": "corporate-admin",
+      "scenario": "read an unknown role",
+      "method": "GET",
+      "path": "/api/v1/roles/no-such-role",
+      "expectedStatus": 404,
+      "body": null
+    },
+    {
+      "user": "a-corporate-admin-2",
+      "role": "corporate-admin",
+      "scenario": "edit role defaults with an unknown permission",
+      "method": "PUT",
+      "path": "/api/v1/roles/agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {
+        "permissions": [
+          "bookings.not_a_permission"
+        ]
+      }
+    },
+    {
+      "user": "a-corporate-admin-2",
+      "role": "corporate-admin",
+      "scenario": "read a user's permissions",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 404,
+      "body": null
+    },
+    {
+      "user": "a-corporate-admin-2",
+      "role": "corporate-admin",
+      "scenario": "edit a user's permissions without If-Match",
+      "method": "PUT",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 404,
+      "body": {}
+    },
+    {
+      "user": "a-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "read the permission catalog",
+      "method": "GET",
+      "path": "/api/v1/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "list the roles",
+      "method": "GET",
+      "path": "/api/v1/roles",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "read one role",
+      "method": "GET",
+      "path": "/api/v1/roles/agency-staff",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "read an unknown role",
+      "method": "GET",
+      "path": "/api/v1/roles/no-such-role",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "edit role defaults with an unknown permission",
+      "method": "PUT",
+      "path": "/api/v1/roles/agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {
+        "permissions": [
+          "bookings.not_a_permission"
+        ]
+      }
+    },
+    {
+      "user": "a-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "read a user's permissions",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "edit a user's permissions without If-Match",
+      "method": "PUT",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {}
+    },
+    {
+      "user": "a-corporate-staff-viewall",
+      "role": "corporate-staff",
+      "scenario": "read the permission catalog",
+      "method": "GET",
+      "path": "/api/v1/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-corporate-staff-viewall",
+      "role": "corporate-staff",
+      "scenario": "list the roles",
+      "method": "GET",
+      "path": "/api/v1/roles",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-corporate-staff-viewall",
+      "role": "corporate-staff",
+      "scenario": "read one role",
+      "method": "GET",
+      "path": "/api/v1/roles/agency-staff",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-corporate-staff-viewall",
+      "role": "corporate-staff",
+      "scenario": "read an unknown role",
+      "method": "GET",
+      "path": "/api/v1/roles/no-such-role",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-corporate-staff-viewall",
+      "role": "corporate-staff",
+      "scenario": "edit role defaults with an unknown permission",
+      "method": "PUT",
+      "path": "/api/v1/roles/agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {
+        "permissions": [
+          "bookings.not_a_permission"
+        ]
+      }
+    },
+    {
+      "user": "a-corporate-staff-viewall",
+      "role": "corporate-staff",
+      "scenario": "read a user's permissions",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-corporate-staff-viewall",
+      "role": "corporate-staff",
+      "scenario": "edit a user's permissions without If-Match",
+      "method": "PUT",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {}
+    },
+    {
+      "user": "a-corporate2-admin",
+      "role": "corporate-admin",
+      "scenario": "read the permission catalog",
+      "method": "GET",
+      "path": "/api/v1/permissions",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-corporate2-admin",
+      "role": "corporate-admin",
+      "scenario": "list the roles",
+      "method": "GET",
+      "path": "/api/v1/roles",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-corporate2-admin",
+      "role": "corporate-admin",
+      "scenario": "read one role",
+      "method": "GET",
+      "path": "/api/v1/roles/agency-staff",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-corporate2-admin",
+      "role": "corporate-admin",
+      "scenario": "read an unknown role",
+      "method": "GET",
+      "path": "/api/v1/roles/no-such-role",
+      "expectedStatus": 404,
+      "body": null
+    },
+    {
+      "user": "a-corporate2-admin",
+      "role": "corporate-admin",
+      "scenario": "edit role defaults with an unknown permission",
+      "method": "PUT",
+      "path": "/api/v1/roles/agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {
+        "permissions": [
+          "bookings.not_a_permission"
+        ]
+      }
+    },
+    {
+      "user": "a-corporate2-admin",
+      "role": "corporate-admin",
+      "scenario": "read a user's permissions",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 404,
+      "body": null
+    },
+    {
+      "user": "a-corporate2-admin",
+      "role": "corporate-admin",
+      "scenario": "edit a user's permissions without If-Match",
+      "method": "PUT",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 404,
+      "body": {}
+    },
+    {
+      "user": "a-agency-admin",
+      "role": "agency-admin",
+      "scenario": "read the permission catalog",
+      "method": "GET",
+      "path": "/api/v1/permissions",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-agency-admin",
+      "role": "agency-admin",
+      "scenario": "list the roles",
+      "method": "GET",
+      "path": "/api/v1/roles",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-agency-admin",
+      "role": "agency-admin",
+      "scenario": "read one role",
+      "method": "GET",
+      "path": "/api/v1/roles/agency-staff",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-agency-admin",
+      "role": "agency-admin",
+      "scenario": "read an unknown role",
+      "method": "GET",
+      "path": "/api/v1/roles/no-such-role",
+      "expectedStatus": 404,
+      "body": null
+    },
+    {
+      "user": "a-agency-admin",
+      "role": "agency-admin",
+      "scenario": "edit role defaults with an unknown permission",
+      "method": "PUT",
+      "path": "/api/v1/roles/agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {
+        "permissions": [
+          "bookings.not_a_permission"
+        ]
+      }
+    },
+    {
+      "user": "a-agency-admin",
+      "role": "agency-admin",
+      "scenario": "read a user's permissions",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-agency-admin",
+      "role": "agency-admin",
+      "scenario": "edit a user's permissions without If-Match",
+      "method": "PUT",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 428,
+      "body": {}
+    },
+    {
+      "user": "a-agency-admin-2",
+      "role": "agency-admin",
+      "scenario": "read the permission catalog",
+      "method": "GET",
+      "path": "/api/v1/permissions",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-agency-admin-2",
+      "role": "agency-admin",
+      "scenario": "list the roles",
+      "method": "GET",
+      "path": "/api/v1/roles",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-agency-admin-2",
+      "role": "agency-admin",
+      "scenario": "read one role",
+      "method": "GET",
+      "path": "/api/v1/roles/agency-staff",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-agency-admin-2",
+      "role": "agency-admin",
+      "scenario": "read an unknown role",
+      "method": "GET",
+      "path": "/api/v1/roles/no-such-role",
+      "expectedStatus": 404,
+      "body": null
+    },
+    {
+      "user": "a-agency-admin-2",
+      "role": "agency-admin",
+      "scenario": "edit role defaults with an unknown permission",
+      "method": "PUT",
+      "path": "/api/v1/roles/agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {
+        "permissions": [
+          "bookings.not_a_permission"
+        ]
+      }
+    },
+    {
+      "user": "a-agency-admin-2",
+      "role": "agency-admin",
+      "scenario": "read a user's permissions",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-agency-admin-2",
+      "role": "agency-admin",
+      "scenario": "edit a user's permissions without If-Match",
+      "method": "PUT",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 428,
+      "body": {}
+    },
+    {
+      "user": "a-agency-staff",
+      "role": "agency-staff",
+      "scenario": "read the permission catalog",
+      "method": "GET",
+      "path": "/api/v1/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-agency-staff",
+      "role": "agency-staff",
+      "scenario": "list the roles",
+      "method": "GET",
+      "path": "/api/v1/roles",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-agency-staff",
+      "role": "agency-staff",
+      "scenario": "read one role",
+      "method": "GET",
+      "path": "/api/v1/roles/agency-staff",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-agency-staff",
+      "role": "agency-staff",
+      "scenario": "read an unknown role",
+      "method": "GET",
+      "path": "/api/v1/roles/no-such-role",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-agency-staff",
+      "role": "agency-staff",
+      "scenario": "edit role defaults with an unknown permission",
+      "method": "PUT",
+      "path": "/api/v1/roles/agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {
+        "permissions": [
+          "bookings.not_a_permission"
+        ]
+      }
+    },
+    {
+      "user": "a-agency-staff",
+      "role": "agency-staff",
+      "scenario": "read a user's permissions",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-agency-staff",
+      "role": "agency-staff",
+      "scenario": "edit a user's permissions without If-Match",
+      "method": "PUT",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {}
+    },
+    {
+      "user": "a-agency-staff-viewall",
+      "role": "agency-staff",
+      "scenario": "read the permission catalog",
+      "method": "GET",
+      "path": "/api/v1/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-agency-staff-viewall",
+      "role": "agency-staff",
+      "scenario": "list the roles",
+      "method": "GET",
+      "path": "/api/v1/roles",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-agency-staff-viewall",
+      "role": "agency-staff",
+      "scenario": "read one role",
+      "method": "GET",
+      "path": "/api/v1/roles/agency-staff",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-agency-staff-viewall",
+      "role": "agency-staff",
+      "scenario": "read an unknown role",
+      "method": "GET",
+      "path": "/api/v1/roles/no-such-role",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-agency-staff-viewall",
+      "role": "agency-staff",
+      "scenario": "edit role defaults with an unknown permission",
+      "method": "PUT",
+      "path": "/api/v1/roles/agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {
+        "permissions": [
+          "bookings.not_a_permission"
+        ]
+      }
+    },
+    {
+      "user": "a-agency-staff-viewall",
+      "role": "agency-staff",
+      "scenario": "read a user's permissions",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-agency-staff-viewall",
+      "role": "agency-staff",
+      "scenario": "edit a user's permissions without If-Match",
+      "method": "PUT",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {}
+    },
+    {
+      "user": "a-agency2-admin",
+      "role": "agency-admin",
+      "scenario": "read the permission catalog",
+      "method": "GET",
+      "path": "/api/v1/permissions",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-agency2-admin",
+      "role": "agency-admin",
+      "scenario": "list the roles",
+      "method": "GET",
+      "path": "/api/v1/roles",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-agency2-admin",
+      "role": "agency-admin",
+      "scenario": "read one role",
+      "method": "GET",
+      "path": "/api/v1/roles/agency-staff",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-agency2-admin",
+      "role": "agency-admin",
+      "scenario": "read an unknown role",
+      "method": "GET",
+      "path": "/api/v1/roles/no-such-role",
+      "expectedStatus": 404,
+      "body": null
+    },
+    {
+      "user": "a-agency2-admin",
+      "role": "agency-admin",
+      "scenario": "edit role defaults with an unknown permission",
+      "method": "PUT",
+      "path": "/api/v1/roles/agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {
+        "permissions": [
+          "bookings.not_a_permission"
+        ]
+      }
+    },
+    {
+      "user": "a-agency2-admin",
+      "role": "agency-admin",
+      "scenario": "read a user's permissions",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 404,
+      "body": null
+    },
+    {
+      "user": "a-agency2-admin",
+      "role": "agency-admin",
+      "scenario": "edit a user's permissions without If-Match",
+      "method": "PUT",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 404,
+      "body": {}
+    },
+    {
+      "user": "a-report-viewer",
+      "role": "report-viewer",
+      "scenario": "read the permission catalog",
+      "method": "GET",
+      "path": "/api/v1/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-report-viewer",
+      "role": "report-viewer",
+      "scenario": "list the roles",
+      "method": "GET",
+      "path": "/api/v1/roles",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-report-viewer",
+      "role": "report-viewer",
+      "scenario": "read one role",
+      "method": "GET",
+      "path": "/api/v1/roles/agency-staff",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-report-viewer",
+      "role": "report-viewer",
+      "scenario": "read an unknown role",
+      "method": "GET",
+      "path": "/api/v1/roles/no-such-role",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-report-viewer",
+      "role": "report-viewer",
+      "scenario": "edit role defaults with an unknown permission",
+      "method": "PUT",
+      "path": "/api/v1/roles/agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {
+        "permissions": [
+          "bookings.not_a_permission"
+        ]
+      }
+    },
+    {
+      "user": "a-report-viewer",
+      "role": "report-viewer",
+      "scenario": "read a user's permissions",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-report-viewer",
+      "role": "report-viewer",
+      "scenario": "edit a user's permissions without If-Match",
+      "method": "PUT",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {}
+    },
+    {
+      "user": "a-customer",
+      "role": "customer",
+      "scenario": "read the permission catalog",
+      "method": "GET",
+      "path": "/api/v1/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-customer",
+      "role": "customer",
+      "scenario": "list the roles",
+      "method": "GET",
+      "path": "/api/v1/roles",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-customer",
+      "role": "customer",
+      "scenario": "read one role",
+      "method": "GET",
+      "path": "/api/v1/roles/agency-staff",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-customer",
+      "role": "customer",
+      "scenario": "read an unknown role",
+      "method": "GET",
+      "path": "/api/v1/roles/no-such-role",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-customer",
+      "role": "customer",
+      "scenario": "edit role defaults with an unknown permission",
+      "method": "PUT",
+      "path": "/api/v1/roles/agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {
+        "permissions": [
+          "bookings.not_a_permission"
+        ]
+      }
+    },
+    {
+      "user": "a-customer",
+      "role": "customer",
+      "scenario": "read a user's permissions",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-customer",
+      "role": "customer",
+      "scenario": "edit a user's permissions without If-Match",
+      "method": "PUT",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {}
+    },
+    {
+      "user": "b-system-admin",
+      "role": "system-admin",
+      "scenario": "read the permission catalog",
+      "method": "GET",
+      "path": "/api/v1/permissions",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "b-system-admin",
+      "role": "system-admin",
+      "scenario": "list the roles",
+      "method": "GET",
+      "path": "/api/v1/roles",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "b-system-admin",
+      "role": "system-admin",
+      "scenario": "read one role",
+      "method": "GET",
+      "path": "/api/v1/roles/agency-staff",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "b-system-admin",
+      "role": "system-admin",
+      "scenario": "read an unknown role",
+      "method": "GET",
+      "path": "/api/v1/roles/no-such-role",
+      "expectedStatus": 404,
+      "body": null
+    },
+    {
+      "user": "b-system-admin",
+      "role": "system-admin",
+      "scenario": "edit role defaults with an unknown permission",
+      "method": "PUT",
+      "path": "/api/v1/roles/agency-staff/permissions",
+      "expectedStatus": 400,
+      "body": {
+        "permissions": [
+          "bookings.not_a_permission"
+        ]
+      }
+    },
+    {
+      "user": "b-system-admin",
+      "role": "system-admin",
+      "scenario": "read a user's permissions",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 404,
+      "body": null
+    },
+    {
+      "user": "b-system-admin",
+      "role": "system-admin",
+      "scenario": "edit a user's permissions without If-Match",
+      "method": "PUT",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 404,
+      "body": {}
+    },
+    {
+      "user": "b-finance-officer",
+      "role": "finance-officer",
+      "scenario": "read the permission catalog",
+      "method": "GET",
+      "path": "/api/v1/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-finance-officer",
+      "role": "finance-officer",
+      "scenario": "list the roles",
+      "method": "GET",
+      "path": "/api/v1/roles",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-finance-officer",
+      "role": "finance-officer",
+      "scenario": "read one role",
+      "method": "GET",
+      "path": "/api/v1/roles/agency-staff",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-finance-officer",
+      "role": "finance-officer",
+      "scenario": "read an unknown role",
+      "method": "GET",
+      "path": "/api/v1/roles/no-such-role",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-finance-officer",
+      "role": "finance-officer",
+      "scenario": "edit role defaults with an unknown permission",
+      "method": "PUT",
+      "path": "/api/v1/roles/agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {
+        "permissions": [
+          "bookings.not_a_permission"
+        ]
+      }
+    },
+    {
+      "user": "b-finance-officer",
+      "role": "finance-officer",
+      "scenario": "read a user's permissions",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-finance-officer",
+      "role": "finance-officer",
+      "scenario": "edit a user's permissions without If-Match",
+      "method": "PUT",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {}
+    },
+    {
+      "user": "b-internal-admin",
+      "role": "internal-admin",
+      "scenario": "read the permission catalog",
+      "method": "GET",
+      "path": "/api/v1/permissions",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "b-internal-admin",
+      "role": "internal-admin",
+      "scenario": "list the roles",
+      "method": "GET",
+      "path": "/api/v1/roles",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "b-internal-admin",
+      "role": "internal-admin",
+      "scenario": "read one role",
+      "method": "GET",
+      "path": "/api/v1/roles/agency-staff",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "b-internal-admin",
+      "role": "internal-admin",
+      "scenario": "read an unknown role",
+      "method": "GET",
+      "path": "/api/v1/roles/no-such-role",
+      "expectedStatus": 404,
+      "body": null
+    },
+    {
+      "user": "b-internal-admin",
+      "role": "internal-admin",
+      "scenario": "edit role defaults with an unknown permission",
+      "method": "PUT",
+      "path": "/api/v1/roles/agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {
+        "permissions": [
+          "bookings.not_a_permission"
+        ]
+      }
+    },
+    {
+      "user": "b-internal-admin",
+      "role": "internal-admin",
+      "scenario": "read a user's permissions",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 404,
+      "body": null
+    },
+    {
+      "user": "b-internal-admin",
+      "role": "internal-admin",
+      "scenario": "edit a user's permissions without If-Match",
+      "method": "PUT",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 404,
+      "body": {}
+    },
+    {
+      "user": "b-internal-staff",
+      "role": "internal-staff",
+      "scenario": "read the permission catalog",
+      "method": "GET",
+      "path": "/api/v1/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-internal-staff",
+      "role": "internal-staff",
+      "scenario": "list the roles",
+      "method": "GET",
+      "path": "/api/v1/roles",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-internal-staff",
+      "role": "internal-staff",
+      "scenario": "read one role",
+      "method": "GET",
+      "path": "/api/v1/roles/agency-staff",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-internal-staff",
+      "role": "internal-staff",
+      "scenario": "read an unknown role",
+      "method": "GET",
+      "path": "/api/v1/roles/no-such-role",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-internal-staff",
+      "role": "internal-staff",
+      "scenario": "edit role defaults with an unknown permission",
+      "method": "PUT",
+      "path": "/api/v1/roles/agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {
+        "permissions": [
+          "bookings.not_a_permission"
+        ]
+      }
+    },
+    {
+      "user": "b-internal-staff",
+      "role": "internal-staff",
+      "scenario": "read a user's permissions",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-internal-staff",
+      "role": "internal-staff",
+      "scenario": "edit a user's permissions without If-Match",
+      "method": "PUT",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {}
+    },
+    {
+      "user": "b-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "read the permission catalog",
+      "method": "GET",
+      "path": "/api/v1/permissions",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "b-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "list the roles",
+      "method": "GET",
+      "path": "/api/v1/roles",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "b-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "read one role",
+      "method": "GET",
+      "path": "/api/v1/roles/agency-staff",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "b-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "read an unknown role",
+      "method": "GET",
+      "path": "/api/v1/roles/no-such-role",
+      "expectedStatus": 404,
+      "body": null
+    },
+    {
+      "user": "b-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "edit role defaults with an unknown permission",
+      "method": "PUT",
+      "path": "/api/v1/roles/agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {
+        "permissions": [
+          "bookings.not_a_permission"
+        ]
+      }
+    },
+    {
+      "user": "b-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "read a user's permissions",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 404,
+      "body": null
+    },
+    {
+      "user": "b-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "edit a user's permissions without If-Match",
+      "method": "PUT",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 404,
+      "body": {}
+    },
+    {
+      "user": "b-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "read the permission catalog",
+      "method": "GET",
+      "path": "/api/v1/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "list the roles",
+      "method": "GET",
+      "path": "/api/v1/roles",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "read one role",
+      "method": "GET",
+      "path": "/api/v1/roles/agency-staff",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "read an unknown role",
+      "method": "GET",
+      "path": "/api/v1/roles/no-such-role",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "edit role defaults with an unknown permission",
+      "method": "PUT",
+      "path": "/api/v1/roles/agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {
+        "permissions": [
+          "bookings.not_a_permission"
+        ]
+      }
+    },
+    {
+      "user": "b-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "read a user's permissions",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "edit a user's permissions without If-Match",
+      "method": "PUT",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {}
+    },
+    {
+      "user": "b-agency-admin",
+      "role": "agency-admin",
+      "scenario": "read the permission catalog",
+      "method": "GET",
+      "path": "/api/v1/permissions",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "b-agency-admin",
+      "role": "agency-admin",
+      "scenario": "list the roles",
+      "method": "GET",
+      "path": "/api/v1/roles",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "b-agency-admin",
+      "role": "agency-admin",
+      "scenario": "read one role",
+      "method": "GET",
+      "path": "/api/v1/roles/agency-staff",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "b-agency-admin",
+      "role": "agency-admin",
+      "scenario": "read an unknown role",
+      "method": "GET",
+      "path": "/api/v1/roles/no-such-role",
+      "expectedStatus": 404,
+      "body": null
+    },
+    {
+      "user": "b-agency-admin",
+      "role": "agency-admin",
+      "scenario": "edit role defaults with an unknown permission",
+      "method": "PUT",
+      "path": "/api/v1/roles/agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {
+        "permissions": [
+          "bookings.not_a_permission"
+        ]
+      }
+    },
+    {
+      "user": "b-agency-admin",
+      "role": "agency-admin",
+      "scenario": "read a user's permissions",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 404,
+      "body": null
+    },
+    {
+      "user": "b-agency-admin",
+      "role": "agency-admin",
+      "scenario": "edit a user's permissions without If-Match",
+      "method": "PUT",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 404,
+      "body": {}
+    },
+    {
+      "user": "b-agency-staff",
+      "role": "agency-staff",
+      "scenario": "read the permission catalog",
+      "method": "GET",
+      "path": "/api/v1/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-agency-staff",
+      "role": "agency-staff",
+      "scenario": "list the roles",
+      "method": "GET",
+      "path": "/api/v1/roles",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-agency-staff",
+      "role": "agency-staff",
+      "scenario": "read one role",
+      "method": "GET",
+      "path": "/api/v1/roles/agency-staff",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-agency-staff",
+      "role": "agency-staff",
+      "scenario": "read an unknown role",
+      "method": "GET",
+      "path": "/api/v1/roles/no-such-role",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-agency-staff",
+      "role": "agency-staff",
+      "scenario": "edit role defaults with an unknown permission",
+      "method": "PUT",
+      "path": "/api/v1/roles/agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {
+        "permissions": [
+          "bookings.not_a_permission"
+        ]
+      }
+    },
+    {
+      "user": "b-agency-staff",
+      "role": "agency-staff",
+      "scenario": "read a user's permissions",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-agency-staff",
+      "role": "agency-staff",
+      "scenario": "edit a user's permissions without If-Match",
+      "method": "PUT",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {}
+    },
+    {
+      "user": "b-report-viewer",
+      "role": "report-viewer",
+      "scenario": "read the permission catalog",
+      "method": "GET",
+      "path": "/api/v1/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-report-viewer",
+      "role": "report-viewer",
+      "scenario": "list the roles",
+      "method": "GET",
+      "path": "/api/v1/roles",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-report-viewer",
+      "role": "report-viewer",
+      "scenario": "read one role",
+      "method": "GET",
+      "path": "/api/v1/roles/agency-staff",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-report-viewer",
+      "role": "report-viewer",
+      "scenario": "read an unknown role",
+      "method": "GET",
+      "path": "/api/v1/roles/no-such-role",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-report-viewer",
+      "role": "report-viewer",
+      "scenario": "edit role defaults with an unknown permission",
+      "method": "PUT",
+      "path": "/api/v1/roles/agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {
+        "permissions": [
+          "bookings.not_a_permission"
+        ]
+      }
+    },
+    {
+      "user": "b-report-viewer",
+      "role": "report-viewer",
+      "scenario": "read a user's permissions",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-report-viewer",
+      "role": "report-viewer",
+      "scenario": "edit a user's permissions without If-Match",
+      "method": "PUT",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {}
+    },
+    {
+      "user": "b-customer",
+      "role": "customer",
+      "scenario": "read the permission catalog",
+      "method": "GET",
+      "path": "/api/v1/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-customer",
+      "role": "customer",
+      "scenario": "list the roles",
+      "method": "GET",
+      "path": "/api/v1/roles",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-customer",
+      "role": "customer",
+      "scenario": "read one role",
+      "method": "GET",
+      "path": "/api/v1/roles/agency-staff",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-customer",
+      "role": "customer",
+      "scenario": "read an unknown role",
+      "method": "GET",
+      "path": "/api/v1/roles/no-such-role",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-customer",
+      "role": "customer",
+      "scenario": "edit role defaults with an unknown permission",
+      "method": "PUT",
+      "path": "/api/v1/roles/agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {
+        "permissions": [
+          "bookings.not_a_permission"
+        ]
+      }
+    },
+    {
+      "user": "b-customer",
+      "role": "customer",
+      "scenario": "read a user's permissions",
+      "method": "GET",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-customer",
+      "role": "customer",
+      "scenario": "edit a user's permissions without If-Match",
+      "method": "PUT",
+      "path": "/api/v1/users/a-agency-staff/permissions",
+      "expectedStatus": 403,
+      "body": {}
+    },
+    {
+      "user": "a-system-admin",
+      "role": "system-admin",
+      "scenario": "read the audit trail",
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-finance-officer",
+      "role": "finance-officer",
+      "scenario": "read the audit trail",
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-finance-reports",
+      "role": "finance-officer",
+      "scenario": "read the audit trail",
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-internal-admin",
+      "role": "internal-admin",
+      "scenario": "read the audit trail",
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "a-internal-staff",
+      "role": "internal-staff",
+      "scenario": "read the audit trail",
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "read the audit trail",
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-corporate-admin-2",
+      "role": "corporate-admin",
+      "scenario": "read the audit trail",
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "read the audit trail",
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-corporate-staff-viewall",
+      "role": "corporate-staff",
+      "scenario": "read the audit trail",
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-corporate2-admin",
+      "role": "corporate-admin",
+      "scenario": "read the audit trail",
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-agency-admin",
+      "role": "agency-admin",
+      "scenario": "read the audit trail",
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-agency-admin-2",
+      "role": "agency-admin",
+      "scenario": "read the audit trail",
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-agency-staff",
+      "role": "agency-staff",
+      "scenario": "read the audit trail",
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-agency-staff-viewall",
+      "role": "agency-staff",
+      "scenario": "read the audit trail",
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-agency2-admin",
+      "role": "agency-admin",
+      "scenario": "read the audit trail",
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-report-viewer",
+      "role": "report-viewer",
+      "scenario": "read the audit trail",
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "a-customer",
+      "role": "customer",
+      "scenario": "read the audit trail",
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-system-admin",
+      "role": "system-admin",
+      "scenario": "read the audit trail",
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "b-finance-officer",
+      "role": "finance-officer",
+      "scenario": "read the audit trail",
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-internal-admin",
+      "role": "internal-admin",
+      "scenario": "read the audit trail",
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "expectedStatus": 200,
+      "body": null
+    },
+    {
+      "user": "b-internal-staff",
+      "role": "internal-staff",
+      "scenario": "read the audit trail",
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-corporate-admin",
+      "role": "corporate-admin",
+      "scenario": "read the audit trail",
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-corporate-staff",
+      "role": "corporate-staff",
+      "scenario": "read the audit trail",
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-agency-admin",
+      "role": "agency-admin",
+      "scenario": "read the audit trail",
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-agency-staff",
+      "role": "agency-staff",
+      "scenario": "read the audit trail",
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-report-viewer",
+      "role": "report-viewer",
+      "scenario": "read the audit trail",
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "expectedStatus": 403,
+      "body": null
+    },
+    {
+      "user": "b-customer",
+      "role": "customer",
+      "scenario": "read the audit trail",
+      "method": "GET",
+      "path": "/api/v1/audit",
+      "expectedStatus": 403,
+      "body": null
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <RootNamespace>Rbac.IntegrationTests</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit.v3" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+    <PackageReference Include="NSubstitute" />
+    <PackageReference Include="Shouldly" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" />
+    <PackageReference Include="Microsoft.Extensions.TimeProvider.Testing" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Rbac.Demo\Rbac.Demo.csproj" />
+    <ProjectReference Include="..\..\src\Rbac.Persistence\Rbac.Persistence.csproj" />
+    <ProjectReference Include="..\..\src\Rbac.AspNetCore\Rbac.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\src\Rbac.Core\Rbac.Core.csproj" />
+    <ProjectReference Include="..\..\src\Rbac.Abstractions\Rbac.Abstractions.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="../Rbac.Tests/Matrix/access-matrix.json" Link="Matrix/access-matrix.json" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="../Rbac.Tests/Matrix/creation-matrix.json" Link="Matrix/creation-matrix.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>
