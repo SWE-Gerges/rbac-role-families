@@ -1,0 +1,395 @@
+### RBAC role families demo: one working request per endpoint, plus the scenarios that matter.
+### Works with the VS Code REST Client and the Rider HTTP client.
+### Start the demo first:  dotnet run --project src/Rbac.Demo -- --environment Development --urls http://localhost:5105
+### Everything below is DEMO ONLY: the dev token endpoint hands out tokens without credentials.
+
+@baseUrl = http://localhost:5105
+
+###############################################################################
+### Health
+###############################################################################
+
+### Liveness: 200
+GET {{baseUrl}}/health/live
+
+### Readiness (checks the database): 200
+GET {{baseUrl}}/health/ready
+
+###############################################################################
+### Tokens for one seeded user per role (tenant-a unless noted)
+###############################################################################
+
+### system-admin
+# @name systemAdmin
+POST {{baseUrl}}/api/v1/dev/token
+Content-Type: application/json
+
+{ "userId": "a-system-admin" }
+
+### internal-staff
+# @name internalStaff
+POST {{baseUrl}}/api/v1/dev/token
+Content-Type: application/json
+
+{ "userId": "a-internal-staff" }
+
+### agency-admin
+# @name agencyAdmin
+POST {{baseUrl}}/api/v1/dev/token
+Content-Type: application/json
+
+{ "userId": "a-agency-admin" }
+
+### agency-staff (sees only their own bookings)
+# @name agencyStaff
+POST {{baseUrl}}/api/v1/dev/token
+Content-Type: application/json
+
+{ "userId": "a-agency-staff" }
+
+### corporate-staff
+# @name corporateStaff
+POST {{baseUrl}}/api/v1/dev/token
+Content-Type: application/json
+
+{ "userId": "a-corporate-staff" }
+
+### finance-officer (refund-related bookings only)
+# @name financeOfficer
+POST {{baseUrl}}/api/v1/dev/token
+Content-Type: application/json
+
+{ "userId": "a-finance-officer" }
+
+### report-viewer (no booking rows at all)
+# @name reportViewer
+POST {{baseUrl}}/api/v1/dev/token
+Content-Type: application/json
+
+{ "userId": "a-report-viewer" }
+
+### customer (a separate principal kind, not a staff role)
+# @name customer
+POST {{baseUrl}}/api/v1/dev/token
+Content-Type: application/json
+
+{ "userId": "a-customer" }
+
+### system-admin of the other tenant
+# @name otherTenantAdmin
+POST {{baseUrl}}/api/v1/dev/token
+Content-Type: application/json
+
+{ "userId": "b-system-admin" }
+
+### Unknown demo user: 404
+POST {{baseUrl}}/api/v1/dev/token
+Content-Type: application/json
+
+{ "userId": "nobody" }
+
+###############################################################################
+### Who am I
+###############################################################################
+
+### Principal and live effective permissions: 200
+GET {{baseUrl}}/api/v1/me
+Authorization: Bearer {{agencyStaff.response.body.$.accessToken}}
+
+###############################################################################
+### The same endpoint, different rows per role (compare totalCount)
+###############################################################################
+
+### system-admin: every booking in tenant-a (48)
+GET {{baseUrl}}/api/v1/bookings?pageSize=100
+Authorization: Bearer {{systemAdmin.response.body.$.accessToken}}
+
+### internal-staff: internal and guest bookings, none owned by an agency or corporate account (13)
+GET {{baseUrl}}/api/v1/bookings?pageSize=100
+Authorization: Bearer {{internalStaff.response.body.$.accessToken}}
+
+### agency-admin: the whole agency (13)
+GET {{baseUrl}}/api/v1/bookings?pageSize=100
+Authorization: Bearer {{agencyAdmin.response.body.$.accessToken}}
+
+### agency-staff: only their own bookings (4)
+GET {{baseUrl}}/api/v1/bookings?pageSize=100
+Authorization: Bearer {{agencyStaff.response.body.$.accessToken}}
+
+### corporate-staff: only their own bookings (3)
+GET {{baseUrl}}/api/v1/bookings?pageSize=100
+Authorization: Bearer {{corporateStaff.response.body.$.accessToken}}
+
+### finance-officer: refund-related statuses only (12)
+GET {{baseUrl}}/api/v1/bookings?pageSize=100
+Authorization: Bearer {{financeOfficer.response.body.$.accessToken}}
+
+### customer: their own bookings (4)
+GET {{baseUrl}}/api/v1/bookings?pageSize=100
+Authorization: Bearer {{customer.response.body.$.accessToken}}
+
+### other tenant: only tenant-b's 12 bookings
+GET {{baseUrl}}/api/v1/bookings?pageSize=100
+Authorization: Bearer {{otherTenantAdmin.response.body.$.accessToken}}
+
+### status filter and paging: 200
+GET {{baseUrl}}/api/v1/bookings?status=Refunded&page=1&pageSize=5
+Authorization: Bearer {{systemAdmin.response.body.$.accessToken}}
+
+### "my bookings only" narrowing: can only reduce what the role already sees
+GET {{baseUrl}}/api/v1/bookings?mine=true
+Authorization: Bearer {{agencyAdmin.response.body.$.accessToken}}
+
+### The client channel header is never an authorization input: same 4 bookings, only echoed as channelHint
+GET {{baseUrl}}/api/v1/bookings
+Authorization: Bearer {{agencyStaff.response.body.$.accessToken}}
+X-Client-Channel: back-office
+
+### Invalid filter: 400 problem details
+GET {{baseUrl}}/api/v1/bookings?status=bogus
+Authorization: Bearer {{agencyStaff.response.body.$.accessToken}}
+
+###############################################################################
+### By id: one rule for lists and lookups
+###############################################################################
+
+### In scope (agency-staff owns bk-a-024): 200
+GET {{baseUrl}}/api/v1/bookings/bk-a-024
+Authorization: Bearer {{agencyStaff.response.body.$.accessToken}}
+
+### Out of scope (bk-a-001 belongs to system-admin): 404, not 403
+GET {{baseUrl}}/api/v1/bookings/bk-a-001
+Authorization: Bearer {{agencyStaff.response.body.$.accessToken}}
+
+### Another tenant's booking: 404
+GET {{baseUrl}}/api/v1/bookings/bk-b-001
+Authorization: Bearer {{systemAdmin.response.body.$.accessToken}}
+
+###############################################################################
+### Writes
+###############################################################################
+
+### Create (ownership is stamped from the caller, never from the body): 201
+# @name created
+POST {{baseUrl}}/api/v1/bookings
+Authorization: Bearer {{agencyStaff.response.body.$.accessToken}}
+Content-Type: application/json
+
+{ "type": "Flight", "amount": 250.50 }
+
+### Cancel it (draft, in scope, bookings.cancel): 200
+POST {{baseUrl}}/api/v1/bookings/{{created.response.body.$.id}}/cancel
+Authorization: Bearer {{agencyStaff.response.body.$.accessToken}}
+
+### Cancel it again: 409
+POST {{baseUrl}}/api/v1/bookings/{{created.response.body.$.id}}/cancel
+Authorization: Bearer {{agencyStaff.response.body.$.accessToken}}
+
+### Invalid amount: 400
+POST {{baseUrl}}/api/v1/bookings
+Authorization: Bearer {{agencyStaff.response.body.$.accessToken}}
+Content-Type: application/json
+
+{ "type": "Hotel", "amount": 0 }
+
+###############################################################################
+### Users: creation graph, founding admin, one visibility rule for lists and lookups
+###############################################################################
+
+### agency-admin (the founding admin of agency-a1) lists their own agency's users only: 200
+GET {{baseUrl}}/api/v1/users
+Authorization: Bearer {{agencyAdmin.response.body.$.accessToken}}
+
+### system-admin lists the tenant's users, filtered by role: 200
+GET {{baseUrl}}/api/v1/users?role=agency-admin&pageSize=100
+Authorization: Bearer {{systemAdmin.response.body.$.accessToken}}
+
+### A user of the caller's own agency: 200
+GET {{baseUrl}}/api/v1/users/a-agency-staff
+Authorization: Bearer {{agencyAdmin.response.body.$.accessToken}}
+
+### A user outside the caller's scope (the system admin): 404, not 403
+GET {{baseUrl}}/api/v1/users/a-system-admin
+Authorization: Bearer {{agencyAdmin.response.body.$.accessToken}}
+
+### The founding admin creates agency staff inside their own agency: 201
+# @name newStaff
+POST {{baseUrl}}/api/v1/users
+Authorization: Bearer {{agencyAdmin.response.body.$.accessToken}}
+Content-Type: application/json
+
+{ "handle": "demo-agency-staff", "displayName": "Demo agency staff", "roleKey": "agency-staff", "agencyId": "agency-a1" }
+
+### Token for the second admin of agency-a1 (not the founding admin)
+# @name secondAgencyAdmin
+POST {{baseUrl}}/api/v1/dev/token
+Content-Type: application/json
+
+{ "userId": "a-agency-admin-2" }
+
+### A second agency admin cannot create admins, only the founding admin can: 403
+POST {{baseUrl}}/api/v1/users
+Authorization: Bearer {{secondAgencyAdmin.response.body.$.accessToken}}
+Content-Type: application/json
+
+{ "handle": "demo-agency-admin", "displayName": "Demo agency admin", "roleKey": "agency-admin", "agencyId": "agency-a1" }
+
+### An agency admin cannot create users in another agency: 403
+POST {{baseUrl}}/api/v1/users
+Authorization: Bearer {{agencyAdmin.response.body.$.accessToken}}
+Content-Type: application/json
+
+{ "handle": "demo-other-agency", "displayName": "Other agency", "roleKey": "agency-staff", "agencyId": "agency-a2" }
+
+### Change the new user's role; their tokens stop working: 200
+PUT {{baseUrl}}/api/v1/users/{{newStaff.response.body.$.id}}/role
+Authorization: Bearer {{agencyAdmin.response.body.$.accessToken}}
+Content-Type: application/json
+
+{ "roleKey": "agency-staff", "agencyId": "agency-a1" }
+
+### Soft delete the new user: 204 (then GET returns 404 and the handle can be used again with a new id)
+DELETE {{baseUrl}}/api/v1/users/{{newStaff.response.body.$.id}}
+Authorization: Bearer {{agencyAdmin.response.body.$.accessToken}}
+
+###############################################################################
+### Permissions: catalog, role defaults, per-user diff with a version precondition
+###############################################################################
+
+### The permission catalog (permissions.view): 200
+GET {{baseUrl}}/api/v1/permissions
+Authorization: Bearer {{systemAdmin.response.body.$.accessToken}}
+
+### Roles with their stored default permissions: 200
+GET {{baseUrl}}/api/v1/roles
+Authorization: Bearer {{systemAdmin.response.body.$.accessToken}}
+
+### One role: 200
+GET {{baseUrl}}/api/v1/roles/agency-staff
+Authorization: Bearer {{systemAdmin.response.body.$.accessToken}}
+
+### Read a user's permissions and the version to send as If-Match (ETag header and "version" field): 200
+# @name staffPermissions
+GET {{baseUrl}}/api/v1/users/a-agency-staff/permissions
+Authorization: Bearer {{agencyAdmin.response.body.$.accessToken}}
+
+### Without If-Match: 428
+PUT {{baseUrl}}/api/v1/users/a-agency-staff/permissions
+Authorization: Bearer {{agencyAdmin.response.body.$.accessToken}}
+Content-Type: application/json
+
+{ "grant": ["bookings.view-all-agency"] }
+
+### Grant and revoke in one diff with the version just read: 200 (the user's sessions are revoked, so request a new token afterwards)
+PUT {{baseUrl}}/api/v1/users/a-agency-staff/permissions
+Authorization: Bearer {{agencyAdmin.response.body.$.accessToken}}
+Content-Type: application/json
+If-Match: "{{staffPermissions.response.body.$.version}}"
+
+{ "grant": ["bookings.view-all-agency"], "revoke": ["bookings.cancel"] }
+
+### Replaying the same version is now stale: 412
+PUT {{baseUrl}}/api/v1/users/a-agency-staff/permissions
+Authorization: Bearer {{agencyAdmin.response.body.$.accessToken}}
+Content-Type: application/json
+If-Match: "{{staffPermissions.response.body.$.version}}"
+
+{ "reset": ["bookings.cancel"] }
+
+### An agency admin cannot grant what they do not hold (reports.view): 403
+PUT {{baseUrl}}/api/v1/users/a-agency-staff-viewall/permissions
+Authorization: Bearer {{agencyAdmin.response.body.$.accessToken}}
+Content-Type: application/json
+If-Match: "1"
+
+{ "grant": ["reports.view"] }
+
+### Replace a role's defaults for the caller's own tenant (system admin only; other tenants are untouched): 200
+PUT {{baseUrl}}/api/v1/roles/report-viewer/permissions
+Authorization: Bearer {{systemAdmin.response.body.$.accessToken}}
+Content-Type: application/json
+
+{ "permissions": ["reports.view"] }
+
+### The system admin cannot add a permission they do not hold (bookings.view-all-agency): 403
+PUT {{baseUrl}}/api/v1/roles/finance-officer/permissions
+Authorization: Bearer {{systemAdmin.response.body.$.accessToken}}
+Content-Type: application/json
+
+{ "permissions": ["bookings.read", "bookings.view-all-agency"] }
+
+###############################################################################
+### Audit trail (append-only; audit.view: system admin and internal admin)
+###############################################################################
+
+### Everything that changed in the tenant, newest first: 200
+GET {{baseUrl}}/api/v1/audit?pageSize=50
+Authorization: Bearer {{systemAdmin.response.body.$.accessToken}}
+
+### Filter by target and by actor: 200
+GET {{baseUrl}}/api/v1/audit?target=a-agency-staff&actor=a-agency-admin
+Authorization: Bearer {{systemAdmin.response.body.$.accessToken}}
+
+### Not allowed to read the trail: 403
+GET {{baseUrl}}/api/v1/audit
+Authorization: Bearer {{agencyAdmin.response.body.$.accessToken}}
+
+###############################################################################
+### Acting on behalf of another user (X-On-Behalf-Of, needs users.act-on-behalf)
+###############################################################################
+
+### The system admin acts as corporate staff: the same list as that staff member sees, not the whole tenant (3)
+GET {{baseUrl}}/api/v1/bookings?pageSize=100
+Authorization: Bearer {{systemAdmin.response.body.$.accessToken}}
+X-On-Behalf-Of: a-corporate-staff
+
+### /me shows the effective user and who is acting: 200
+GET {{baseUrl}}/api/v1/me
+Authorization: Bearer {{systemAdmin.response.body.$.accessToken}}
+X-On-Behalf-Of: a-corporate-staff
+
+### Acting as a peer or a higher role is refused: 403 (here: as themselves)
+GET {{baseUrl}}/api/v1/me
+Authorization: Bearer {{systemAdmin.response.body.$.accessToken}}
+X-On-Behalf-Of: a-system-admin
+
+### A user of another tenant does not exist for the caller: 404
+GET {{baseUrl}}/api/v1/me
+Authorization: Bearer {{systemAdmin.response.body.$.accessToken}}
+X-On-Behalf-Of: b-agency-staff
+
+### Without users.act-on-behalf the header is refused, not ignored: 403
+GET {{baseUrl}}/api/v1/me
+Authorization: Bearer {{agencyAdmin.response.body.$.accessToken}}
+X-On-Behalf-Of: a-agency-staff
+
+###############################################################################
+### Administration
+###############################################################################
+
+### Role by action summary from the registry (system-admin only): 200
+GET {{baseUrl}}/api/v1/access-matrix
+Authorization: Bearer {{systemAdmin.response.body.$.accessToken}}
+
+### OpenAPI document (requires a token like everything else): 200
+GET {{baseUrl}}/openapi/v1.json
+Authorization: Bearer {{systemAdmin.response.body.$.accessToken}}
+
+###############################################################################
+### Denials
+###############################################################################
+
+### No token: 401
+GET {{baseUrl}}/api/v1/bookings
+
+### Missing permission (report-viewer has reports.view only): 403
+GET {{baseUrl}}/api/v1/bookings
+Authorization: Bearer {{reportViewer.response.body.$.accessToken}}
+
+### Missing permission on a gated action (finance-officer cannot cancel): 403
+POST {{baseUrl}}/api/v1/bookings/bk-a-004/cancel
+Authorization: Bearer {{financeOfficer.response.body.$.accessToken}}
+
+### Not allowed (corporate-staff does not hold access-matrix.view): 403
+GET {{baseUrl}}/api/v1/access-matrix
+Authorization: Bearer {{corporateStaff.response.body.$.accessToken}}

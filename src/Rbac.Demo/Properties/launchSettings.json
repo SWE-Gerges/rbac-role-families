@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Rbac.Demo": {
+      "commandName": "Project",
+      "applicationUrl": "http://localhost:5105",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
