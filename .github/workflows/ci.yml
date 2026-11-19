@@ -1,0 +1,42 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build (warnings are errors)
+        run: dotnet build --no-restore -warnaserror
+
+      # Unit and API tests. Everything runs on SQLite, so nothing but the SDK is needed.
+      - name: Test
+        run: dotnet test --no-build
+
+      # Both generated documents are checked by tests that fail on any difference. They are named here so a drift is
+      # easy to spot in the log and the failure message carries the regeneration command.
+      - name: OpenAPI snapshot is current
+        run: dotnet test --no-build --project tests/Rbac.IntegrationTests --filter "FullyQualifiedName~OpenApiSnapshotTests"
+
+      - name: Access matrix document is current
+        run: dotnet test --no-build --project tests/Rbac.IntegrationTests --filter "FullyQualifiedName~AccessMatrixDocumentTests"
