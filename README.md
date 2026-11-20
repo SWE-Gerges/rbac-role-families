@@ -276,7 +276,7 @@ their own caches over one SQLite file.
 | The OpenAPI document is current and every endpoint has a request in the `.http` file | `OpenApiSnapshotTests`, `RepositoryLayoutTests` |
 
 Not shown by any test here: anything that needs a Postgres server (the committed Postgres migrations' SQL, the Postgres audit
-trigger, the seed-record backfill), real separate processes, and the CI workflow on its Linux runner. See Known limits.
+trigger, the seed-record backfill), real separate processes. See Known limits.
 
 ### Regenerating the generated files
 
@@ -339,8 +339,7 @@ Short records in [`docs/adr`](docs/adr):
 - **Permission edits revoke sessions on purpose.** The edited user (or every holder of an edited role in that tenant) must request a new token.
 - The dev token endpoint, the placeholder keys and plain HTTP exist for the demo only. Terminate TLS and use a real identity
   provider anywhere else.
-- `.github/workflows/ci.yml` (restore, build with warnings as errors, tests, the two generated-document checks) has not been run
-  by a CI runner; nothing here could execute it.
+- `.github/workflows/ci.yml` (restore, build with warnings as errors, tests, the two generated-document checks) runs on every push to `main` and every pull request (`ubuntu-latest`) and passed on its first run. It starts no Postgres, so the Postgres items above stay unverified there too.
 - SQLite is a single-writer database. It is the right size for the demo and the tests and not for load.
 
 ## Roadmap
